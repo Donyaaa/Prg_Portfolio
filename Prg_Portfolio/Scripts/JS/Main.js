@@ -1,6 +1,6 @@
 ﻿//---------------------Subscribe Email
 $("#Btn_SubmitSubscribe").click(function () {
- 
+
     var data = $("#Frm_Subscribe").serialize();
     $.ajax({
         type: "Post",
@@ -26,7 +26,7 @@ $("#Btn_SubmitSubscribe").click(function () {
 
 //---------------------Submit The Contact Us
 $("#Btn_SubmitCountactUs").click(function () {
-  
+
     var data = $("#Frm_CountactUs").serialize();
     $.ajax({
         type: "Post",
@@ -45,6 +45,12 @@ $("#Btn_SubmitCountactUs").click(function () {
         }
     });
 });
+//---------------------Click Viewer
 
+$(".ClickViewer").click(function () {
 
+    var Idget = $(".GetIdForViewer").text();
+    debugger;
+    window.location = "/Home/BlogDetail/" + Idget;
+    
 });
