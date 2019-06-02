@@ -30,15 +30,13 @@
                     <!-- Single Blog Post Area -->
                     @foreach (var item in Model.PictureBlogVMNew)
                     {
-                   
-                        <div class="col-12 col-lg-6 ">
+                        <div class="col-12 col-lg-6">
                             <div class="single-blog-post mb-50">
                                 <div class="post-thumbnail mb-30">
-                                    <a href="single-post.html"><img class="ClickViewer" src="/Content/Img/@item.PictureVMNew.Name" alt=""></a>
-                                    <div class="GetIdForViewer" hidden>@item.BlogVMNew.Id</div>
+                                    <a href="single-post.html"><img src="/Content/Img/@item.PictureVMNew.Name" alt=""></a>
                                 </div>
                                 <div class="post-content">
-                                    <a href="single-post.html" class="post-title text2 ClickViewer">
+                                    <a href="single-post.html" class="post-title text2">
                                         <h5>
                                             طراحان باغ در سراسر کشور، ایده هایی را که جهان باغبانی را در سال 2018 شکل می
                                             دهند، پیش بینی می کنند
@@ -48,14 +46,15 @@
                                         <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>@string.Format("{0:yyyy/MM/dd}", item.BlogVMNew.Date)</a>
                                         <a href="#"><i class="fa fa-user" aria-hidden="true"></i>@item.UserName.FirstName @item.UserName.LastName</a>
                                     </div>
-                                    <p class="post-excerpt text2 ClickViewer">
+                                    <p class="post-excerpt text2">
                                         @item.BlogVMNew.Text
                                     </p>
                                 </div>
                             </div>
-                       </div>
+                        </div>
                     }
                 </div>
+
                 </div>
                 <div class="row">
                     <div class="col-12">
@@ -88,7 +87,6 @@
                         <div class="widget-title text2">
                             <h4>پست اخیر</h4>
                         </div>
-
                         <!--Foreach-->
                         <!-- Single Latest Posts -->
                         <div class="single-latest-post d-flex align-items-center">
@@ -101,7 +99,9 @@
                                 </a>
                                 <a href="#" class="post-date">20 ژانویه 2018</a>
                             </div>
-                        </div>    
+                        </div>
+                
+                     
                     </div>
                     <!-- ##### Single Widget Area ##### -->
                     <div class="single-widget-area">
@@ -137,7 +137,6 @@
                                 <div class="product-info m-3">
                                     <a href="shop-details.html">@item.ProductVMNew.NameProduct </a>
                                     <p>@item.PriceVMNew.Price</p>
-                                    
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -175,7 +174,7 @@
                                     <a href="shop-details.html">@item.ProductVMNew.NameProduct </a>
                                     <p>@item.PriceVMNew.Price</p>
                                 </div>
-                           </div>
+                            </div>
                         }
                     </div>
                 </div>
@@ -213,6 +212,7 @@
                 <div class="col-12">
                     <div class="border-line"></div>
                 </div>
+
             </div>
         </div>
     </div>
