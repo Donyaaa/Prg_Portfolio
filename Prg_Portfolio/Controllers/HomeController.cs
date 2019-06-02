@@ -49,7 +49,7 @@ namespace Prg_Portfolio.Controllers
                 UserName = new Vm_User { FirstName = mk.Tbl_User.FirstName, LastName = mk.Tbl_User.LastName, Description = mk.Tbl_User.Description },
                 ComentPro = new Vm_CommentProduct { Text = mk.Text },
                 PictureVMNew = db.Rep_User_Picture.Get(u => u.User_Id == mk.User_Id).Select(a => new Vm_Picture { Name = a.Tbl_Picture.Name }).FirstOrDefault(),
-                UserTypVMNew = db.Rep_User.Get(u => u.UserType_Id==mk.Tbl_User.UserType_Id).Select(r=>new Vm_UserType { Type = r.Tbl_UserType.Type}).FirstOrDefault()
+                UserTypVMNew = db.Rep_User.Get(u => u.UserType_Id == mk.Tbl_User.UserType_Id).Select(r => new Vm_UserType { Type = r.Tbl_UserType.Type }).FirstOrDefault()
 
             }).ToList();
 
@@ -71,7 +71,7 @@ namespace Prg_Portfolio.Controllers
             {
                 BlogVMNew = new Vm_Blog { Title = e.Tbl_Blog.Title, Description = e.Tbl_Blog.Description, Text = e.Tbl_Blog.Text, Date = ((DateTime)e.Tbl_Blog.Date).DateTimeToShamsi() },
                 PictureVMNew = new Vm_Picture { Name = e.Tbl_Picture.Name, PicturePath = e.Tbl_Picture.PicturePath },
-                UserName = db.Rep_Blog.Get(uj => uj.User_Id == e.Tbl_Blog.User_Id).Select(a => new Vm_User { FirstName = a.Tbl_User.FirstName, LastName= a.Tbl_User.LastName }).LastOrDefault()
+                UserName = db.Rep_Blog.Get(uj => uj.User_Id == e.Tbl_Blog.User_Id).Select(a => new Vm_User { FirstName = a.Tbl_User.FirstName, LastName = a.Tbl_User.LastName }).LastOrDefault()
             }).ToList();
             indexVm.PictureBlogVMNew = p.Take(3);
 
@@ -236,7 +236,7 @@ namespace Prg_Portfolio.Controllers
             //Blog---------------------------------------------------------------
             var p2 = db.Rep_Blog_Picture.Get().Select(e => new Vm_PictureBlog
             {
-                BlogVMNew = new Vm_Blog { Title = e.Tbl_Blog.Title, Description = e.Tbl_Blog.Description, Text = e.Tbl_Blog.Text, Date = ((DateTime)e.Tbl_Blog.Date).DateTimeToShamsi() },
+                BlogVMNew = new Vm_Blog { Id = e.Tbl_Blog.Id, Title = e.Tbl_Blog.Title, Description = e.Tbl_Blog.Description, Text = e.Tbl_Blog.Text, Date = ((DateTime)e.Tbl_Blog.Date).DateTimeToShamsi() },
                 PictureVMNew = new Vm_Picture { Name = e.Tbl_Picture.Name, PicturePath = e.Tbl_Picture.PicturePath },
                 UserName = db.Rep_Blog.Get(uj => uj.User_Id == e.Tbl_Blog.User_Id).Select(a => new Vm_User { FirstName = a.Tbl_User.FirstName, LastName = a.Tbl_User.LastName }).LastOrDefault()
             }).ToList();
@@ -250,7 +250,7 @@ namespace Prg_Portfolio.Controllers
             {
                 var y1 = db.Rep_Product_Picture.Get(a => a.Product_Id == item.Key).Select(e => new Vm_PictureProduct
                 {
-                    ProductVMNew = new Vm_Product { NameProduct = e.Tbl_Products.NameProduct },
+                    ProductVMNew = new Vm_Product { NameProduct = e.Tbl_Products.NameProduct , Id=e.Tbl_Products.Id , Ratting=e.Tbl_Products.Tbl_CommentProduct.Average(a=>a.Point_Of100.Value) },
                     PicturVMNew = new Vm_Picture { Name = e.Tbl_Picture.Name, PicturePath = e.Tbl_Picture.PicturePath },
                     PriceVMNew = db.Rep_PriceProduct.Get(a => a.Products_Id == e.Product_Id).Select(a => new Vm_Price { Price = a.Tbl_Price.Price }).LastOrDefault()
                 }).ToList().FirstOrDefault();
@@ -258,7 +258,15 @@ namespace Prg_Portfolio.Controllers
                 Li2.Add(y1);
             }
             PageBlog.PortofioProductVM2 = Li2;
-
+            List<long> ListUser = new List<long>();
+            foreach (var item in Li2)
+            {
+                ListUser.Add(item.ProductVMNew.Id);
+            }
+            foreach (var item in ListUser)
+            {
+                Ratting(item);
+            }
             //Footer------------------------------------------------------------
             var m = db.Rep_SellFactorDetail.Get().Select(a => a).GroupBy(a => a.Products_Id).ToList().OrderByDescending(a => a.Count()).Take(2);
             List<Vm_PictureProduct> Li = new List<Vm_PictureProduct>();
@@ -328,6 +336,12 @@ namespace Prg_Portfolio.Controllers
             mailMessage.IsBodyHtml = true;
             mailMessage.BodyEncoding = UTF8Encoding.UTF8;
             client.Send(mailMessage);
+        }
+
+        public double Ratting(double id)
+        {
+
+            return db.Rep_CommentProduct.Get(a => a.Products_Id == id).Average(aa => aa.Point_Of100.Value);
         }
     }
 }

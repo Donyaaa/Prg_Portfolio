@@ -12,5 +12,6 @@ namespace Prg_Portfolio.Models.ViewModel
         public Nullable<int> Inventory { get; set; }
         public string Description { get; set; }     
         public Nullable<bool> IsActive { get; set; }
+        public double Ratting { get; set; }
     }
 }
