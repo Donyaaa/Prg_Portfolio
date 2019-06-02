@@ -91,7 +91,6 @@ namespace Prg_Portfolio.Controllers
                     PicturVMNew = new Vm_Picture { Name = e.Tbl_Picture.Name, PicturePath = e.Tbl_Picture.PicturePath },
                     PriceVMNew = db.Rep_PriceProduct.Get(a => a.Products_Id == e.Product_Id).Select(a => new Vm_Price { Price = a.Tbl_Price.Price }).LastOrDefault()
                 }).ToList().FirstOrDefault();
-
                 Li.Add(y1);
             }
             indexVm.PortofioProductVM = Li;
@@ -245,30 +244,20 @@ namespace Prg_Portfolio.Controllers
             //LeftSide Best Seller------------------------------------------------------------
             var m2 = db.Rep_SellFactorDetail.Get().Select(a => a).GroupBy(a => a.Products_Id).ToList().OrderByDescending(a => a.Count()).Take(3);
             List<Vm_PictureProduct> Li2 = new List<Vm_PictureProduct>();
-
             foreach (var item in m2)
             {
                 var y1 = db.Rep_Product_Picture.Get(a => a.Product_Id == item.Key).Select(e => new Vm_PictureProduct
                 {
-                    ProductVMNew = new Vm_Product { NameProduct = e.Tbl_Products.NameProduct , Id=e.Tbl_Products.Id , Ratting=e.Tbl_Products.Tbl_CommentProduct.Average(a=>a.Point_Of100.Value) },
+                    ProductVMNew = new Vm_Product { NameProduct = e.Tbl_Products.NameProduct , Id=e.Tbl_Products.Id /*, Ratting=e.Tbl_Products.Tbl_CommentProduct.Average(a=>a.Point_Of100.Value)*/ },
                     PicturVMNew = new Vm_Picture { Name = e.Tbl_Picture.Name, PicturePath = e.Tbl_Picture.PicturePath },
                     PriceVMNew = db.Rep_PriceProduct.Get(a => a.Products_Id == e.Product_Id).Select(a => new Vm_Price { Price = a.Tbl_Price.Price }).LastOrDefault()
                 }).ToList().FirstOrDefault();
 
                 Li2.Add(y1);
             }
-            PageBlog.PortofioProductVM2 = Li2;
-            List<long> ListUser = new List<long>();
-            foreach (var item in Li2)
-            {
-                ListUser.Add(item.ProductVMNew.Id);
-            }
-            foreach (var item in ListUser)
-            {
-                Ratting(item);
-            }
-            //Footer------------------------------------------------------------
-            var m = db.Rep_SellFactorDetail.Get().Select(a => a).GroupBy(a => a.Products_Id).ToList().OrderByDescending(a => a.Count()).Take(2);
+        PageBlog.PortofioProductVM2 = Li2;
+               //Footer------------------------------------------------------------
+               var m = db.Rep_SellFactorDetail.Get().Select(a => a).GroupBy(a => a.Products_Id).ToList().OrderByDescending(a => a.Count()).Take(2);
             List<Vm_PictureProduct> Li = new List<Vm_PictureProduct>();
 
             foreach (var item in m)
@@ -336,12 +325,6 @@ namespace Prg_Portfolio.Controllers
             mailMessage.IsBodyHtml = true;
             mailMessage.BodyEncoding = UTF8Encoding.UTF8;
             client.Send(mailMessage);
-        }
-
-        public double Ratting(double id)
-        {
-
-            return db.Rep_CommentProduct.Get(a => a.Products_Id == id).Average(aa => aa.Point_Of100.Value);
         }
     }
 }

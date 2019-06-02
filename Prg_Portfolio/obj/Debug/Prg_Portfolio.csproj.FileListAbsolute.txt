@@ -48,3 +48,4 @@ F:\Portfolio\Prg_Portfolio\Prg_Portfolio\bin\System.Web.Helpers.xml
 F:\Portfolio\Prg_Portfolio\Prg_Portfolio\bin\System.Web.Mvc.xml
 F:\Portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.dll
 F:\Portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.pdb
+F:\Portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.csprojResolveAssemblyReference.cache
