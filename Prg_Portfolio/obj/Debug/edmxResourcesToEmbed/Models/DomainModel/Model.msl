@@ -1,0 +1,538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_PortfolioModelStoreContainer" CdmEntityContainer="DB_PortfolioEntities">
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="DB_PortfolioModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="DB_PortfolioModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DB_PortfolioModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="DB_PortfolioModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_PortfolioModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="DB_PortfolioModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_PortfolioModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DB_PortfolioModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DB_PortfolioModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Blog">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Blog">
+        <MappingFragment StoreEntitySet="Tbl_Blog">
+          <ScalarProperty Name="ViewBlog_Count" ColumnName="ViewBlog_Count" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Blog_Picture">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Blog_Picture">
+        <MappingFragment StoreEntitySet="Tbl_Blog_Picture">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Picture_Id" ColumnName="Picture_Id" />
+          <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Blog_Tag">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Blog_Tag">
+        <MappingFragment StoreEntitySet="Tbl_Blog_Tag">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Tag_Id" ColumnName="Tag_Id" />
+          <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_BuyFactor">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_BuyFactor">
+        <MappingFragment StoreEntitySet="Tbl_BuyFactor">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="FactorNumber" ColumnName="FactorNumber" />
+          <ScalarProperty Name="GetDate" ColumnName="GetDate" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="PayPrice" ColumnName="PayPrice" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Salesman_Id" ColumnName="Salesman_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_BuyFactorDetail">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_BuyFactorDetail">
+        <MappingFragment StoreEntitySet="Tbl_BuyFactorDetail">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="BuyFactor_Id" ColumnName="BuyFactor_Id" />
+          <ScalarProperty Name="Products_Id" ColumnName="Products_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Category">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Category">
+        <MappingFragment StoreEntitySet="Tbl_Category">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_CommentBlog">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_CommentBlog">
+        <MappingFragment StoreEntitySet="Tbl_CommentBlog">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="PointOf100" ColumnName="PointOf100" />
+          <ScalarProperty Name="RepllayTo" ColumnName="RepllayTo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_CommentProduct">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_CommentProduct">
+        <MappingFragment StoreEntitySet="Tbl_CommentProduct">
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Point_Of100" ColumnName="Point Of100" />
+          <ScalarProperty Name="RepllayTo" ColumnName="RepllayTo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="ReasonRating_Id" ColumnName="ReasonRating_Id" />
+          <ScalarProperty Name="Products_Id" ColumnName="Products_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ContactUS">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_ContactUS">
+        <MappingFragment StoreEntitySet="Tbl_ContactUS">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Massage" ColumnName="Massage" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Coupon">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Coupon">
+        <MappingFragment StoreEntitySet="Tbl_Coupon">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="RemindCount" ColumnName="RemindCount" />
+          <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="OffCode" ColumnName="OffCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_CustomerCart">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_CustomerCart">
+        <MappingFragment StoreEntitySet="Tbl_CustomerCart">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Products_Id" ColumnName="Products_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Gender">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Gender">
+        <MappingFragment StoreEntitySet="Tbl_Gender">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Link">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Link">
+        <MappingFragment StoreEntitySet="Tbl_Link">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="LinkPath" ColumnName="LinkPath" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="linkType_Id" ColumnName="linkType_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_LinkType">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_LinkType">
+        <MappingFragment StoreEntitySet="Tbl_LinkType">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Location">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Location">
+        <MappingFragment StoreEntitySet="Tbl_Location">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Floor" ColumnName="Floor" />
+          <ScalarProperty Name="Plaque" ColumnName="Plaque" />
+          <ScalarProperty Name="Alley" ColumnName="Alley" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Picture">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Picture">
+        <MappingFragment StoreEntitySet="Tbl_Picture">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="PicturePath" ColumnName="PicturePath" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Price">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Price">
+        <MappingFragment StoreEntitySet="Tbl_Price">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Price_Products">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Price_Products">
+        <MappingFragment StoreEntitySet="Tbl_Price_Products">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Products_Id" ColumnName="Products_Id" />
+          <ScalarProperty Name="Price_Id" ColumnName="Price_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Product_Picture">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Product_Picture">
+        <MappingFragment StoreEntitySet="Tbl_Product_Picture">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Picture_Id" ColumnName="Picture_Id" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Product_Tag">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Product_Tag">
+        <MappingFragment StoreEntitySet="Tbl_Product_Tag">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Tag_Id" ColumnName="Tag_Id" />
+          <ScalarProperty Name="Products_Id" ColumnName="Products_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Products">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Products">
+        <MappingFragment StoreEntitySet="Tbl_Products">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Inventory" ColumnName="Inventory" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ReasonRating">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_ReasonRating">
+        <MappingFragment StoreEntitySet="Tbl_ReasonRating">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Salseman">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Salseman">
+        <MappingFragment StoreEntitySet="Tbl_Salseman">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="NationalCode" ColumnName="NationalCode" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Gender_Id" ColumnName="Gender_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_SellFactor">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_SellFactor">
+        <MappingFragment StoreEntitySet="Tbl_SellFactor">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="PayPrice" ColumnName="PayPrice" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Coupon_Id" ColumnName="Coupon_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_SellFactorDetail">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_SellFactorDetail">
+        <MappingFragment StoreEntitySet="Tbl_SellFactorDetail">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="ProductCount" ColumnName="ProductCount" />
+          <ScalarProperty Name="SellFactor_Id" ColumnName="SellFactor_Id" />
+          <ScalarProperty Name="Products_Id" ColumnName="Products_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Subscribe">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Subscribe">
+        <MappingFragment StoreEntitySet="Tbl_Subscribe">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Tag">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Tag">
+        <MappingFragment StoreEntitySet="Tbl_Tag">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_User">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_User">
+        <MappingFragment StoreEntitySet="Tbl_User">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="CompleteInformation" ColumnName="CompleteInformation" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="NationalCode" ColumnName="NationalCode" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Gender_Id" ColumnName="Gender_Id" />
+          <ScalarProperty Name="UserType_Id" ColumnName="UserType_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_UserPicture">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_UserPicture">
+        <MappingFragment StoreEntitySet="Tbl_UserPicture">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Modificator_Id" ColumnName="Modificator_Id" />
+          <ScalarProperty Name="ModificationDateTime" ColumnName="ModificationDateTime" />
+          <ScalarProperty Name="Deactivetor_Id" ColumnName="Deactivetor_Id" />
+          <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
+          <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Picture_Id" ColumnName="Picture_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_UserType">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_UserType">
+        <MappingFragment StoreEntitySet="Tbl_UserType">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

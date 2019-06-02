@@ -1,0 +1,1221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_PortfolioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DB_PortfolioEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DB_PortfolioModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DB_PortfolioModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="sysdiagrams" EntityType="DB_PortfolioModel.sysdiagram" />
+    <EntitySet Name="Tbl_Blog" EntityType="DB_PortfolioModel.Tbl_Blog" />
+    <EntitySet Name="Tbl_Blog_Picture" EntityType="DB_PortfolioModel.Tbl_Blog_Picture" />
+    <EntitySet Name="Tbl_Blog_Tag" EntityType="DB_PortfolioModel.Tbl_Blog_Tag" />
+    <EntitySet Name="Tbl_BuyFactor" EntityType="DB_PortfolioModel.Tbl_BuyFactor" />
+    <EntitySet Name="Tbl_BuyFactorDetail" EntityType="DB_PortfolioModel.Tbl_BuyFactorDetail" />
+    <EntitySet Name="Tbl_Category" EntityType="DB_PortfolioModel.Tbl_Category" />
+    <EntitySet Name="Tbl_CommentBlog" EntityType="DB_PortfolioModel.Tbl_CommentBlog" />
+    <EntitySet Name="Tbl_CommentProduct" EntityType="DB_PortfolioModel.Tbl_CommentProduct" />
+    <EntitySet Name="Tbl_ContactUS" EntityType="DB_PortfolioModel.Tbl_ContactUS" />
+    <EntitySet Name="Tbl_Coupon" EntityType="DB_PortfolioModel.Tbl_Coupon" />
+    <EntitySet Name="Tbl_CustomerCart" EntityType="DB_PortfolioModel.Tbl_CustomerCart" />
+    <EntitySet Name="Tbl_Gender" EntityType="DB_PortfolioModel.Tbl_Gender" />
+    <EntitySet Name="Tbl_Link" EntityType="DB_PortfolioModel.Tbl_Link" />
+    <EntitySet Name="Tbl_LinkType" EntityType="DB_PortfolioModel.Tbl_LinkType" />
+    <EntitySet Name="Tbl_Location" EntityType="DB_PortfolioModel.Tbl_Location" />
+    <EntitySet Name="Tbl_Picture" EntityType="DB_PortfolioModel.Tbl_Picture" />
+    <EntitySet Name="Tbl_Price" EntityType="DB_PortfolioModel.Tbl_Price" />
+    <EntitySet Name="Tbl_Price_Products" EntityType="DB_PortfolioModel.Tbl_Price_Products" />
+    <EntitySet Name="Tbl_Product_Picture" EntityType="DB_PortfolioModel.Tbl_Product_Picture" />
+    <EntitySet Name="Tbl_Product_Tag" EntityType="DB_PortfolioModel.Tbl_Product_Tag" />
+    <EntitySet Name="Tbl_Products" EntityType="DB_PortfolioModel.Tbl_Products" />
+    <EntitySet Name="Tbl_ReasonRating" EntityType="DB_PortfolioModel.Tbl_ReasonRating" />
+    <EntitySet Name="Tbl_Salseman" EntityType="DB_PortfolioModel.Tbl_Salseman" />
+    <EntitySet Name="Tbl_SellFactor" EntityType="DB_PortfolioModel.Tbl_SellFactor" />
+    <EntitySet Name="Tbl_SellFactorDetail" EntityType="DB_PortfolioModel.Tbl_SellFactorDetail" />
+    <EntitySet Name="Tbl_Subscribe" EntityType="DB_PortfolioModel.Tbl_Subscribe" />
+    <EntitySet Name="Tbl_Tag" EntityType="DB_PortfolioModel.Tbl_Tag" />
+    <EntitySet Name="Tbl_User" EntityType="DB_PortfolioModel.Tbl_User" />
+    <EntitySet Name="Tbl_UserPicture" EntityType="DB_PortfolioModel.Tbl_UserPicture" />
+    <EntitySet Name="Tbl_UserType" EntityType="DB_PortfolioModel.Tbl_UserType" />
+    <AssociationSet Name="FK_Tbl_Comment_Tbl_Post" Association="DB_PortfolioModel.FK_Tbl_Comment_Tbl_Post">
+      <End Role="Tbl_Blog" EntitySet="Tbl_Blog" />
+      <End Role="Tbl_CommentBlog" EntitySet="Tbl_CommentBlog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Post_Picture_Tbl_Post" Association="DB_PortfolioModel.FK_Tbl_Post_Picture_Tbl_Post">
+      <End Role="Tbl_Blog" EntitySet="Tbl_Blog" />
+      <End Role="Tbl_Blog_Picture" EntitySet="Tbl_Blog_Picture" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Post_Tag_Tbl_Blog" Association="DB_PortfolioModel.FK_Tbl_Post_Tag_Tbl_Blog">
+      <End Role="Tbl_Blog" EntitySet="Tbl_Blog" />
+      <End Role="Tbl_Blog_Tag" EntitySet="Tbl_Blog_Tag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Post_Tbl_User" Association="DB_PortfolioModel.FK_Tbl_Post_Tbl_User">
+      <End Role="Tbl_User" EntitySet="Tbl_User" />
+      <End Role="Tbl_Blog" EntitySet="Tbl_Blog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Post_Picture_Tbl_Picture" Association="DB_PortfolioModel.FK_Tbl_Post_Picture_Tbl_Picture">
+      <End Role="Tbl_Picture" EntitySet="Tbl_Picture" />
+      <End Role="Tbl_Blog_Picture" EntitySet="Tbl_Blog_Picture" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Post_Tag_Tbl_Tag" Association="DB_PortfolioModel.FK_Tbl_Post_Tag_Tbl_Tag">
+      <End Role="Tbl_Tag" EntitySet="Tbl_Tag" />
+      <End Role="Tbl_Blog_Tag" EntitySet="Tbl_Blog_Tag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_BuyFactor_Tbl_Salseman" Association="DB_PortfolioModel.FK_Tbl_BuyFactor_Tbl_Salseman">
+      <End Role="Tbl_Salseman" EntitySet="Tbl_Salseman" />
+      <End Role="Tbl_BuyFactor" EntitySet="Tbl_BuyFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_BuyFactorDetail_Tbl_BuyFactor" Association="DB_PortfolioModel.FK_Tbl_BuyFactorDetail_Tbl_BuyFactor">
+      <End Role="Tbl_BuyFactor" EntitySet="Tbl_BuyFactor" />
+      <End Role="Tbl_BuyFactorDetail" EntitySet="Tbl_BuyFactorDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_BuyFactorDetail_Tbl_Products" Association="DB_PortfolioModel.FK_Tbl_BuyFactorDetail_Tbl_Products">
+      <End Role="Tbl_Products" EntitySet="Tbl_Products" />
+      <End Role="Tbl_BuyFactorDetail" EntitySet="Tbl_BuyFactorDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_BuyFactorDetail_Tbl_User" Association="DB_PortfolioModel.FK_Tbl_BuyFactorDetail_Tbl_User">
+      <End Role="Tbl_User" EntitySet="Tbl_User" />
+      <End Role="Tbl_BuyFactorDetail" EntitySet="Tbl_BuyFactorDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Products_Tbl_Category" Association="DB_PortfolioModel.FK_Tbl_Products_Tbl_Category">
+      <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+      <End Role="Tbl_Products" EntitySet="Tbl_Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Comment_Tbl_Comment" Association="DB_PortfolioModel.FK_Tbl_Comment_Tbl_Comment">
+      <End Role="Tbl_CommentBlog" EntitySet="Tbl_CommentBlog" />
+      <End Role="Tbl_CommentBlog1" EntitySet="Tbl_CommentBlog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Comment_Tbl_User" Association="DB_PortfolioModel.FK_Tbl_Comment_Tbl_User">
+      <End Role="Tbl_User" EntitySet="Tbl_User" />
+      <End Role="Tbl_CommentBlog" EntitySet="Tbl_CommentBlog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_CommentProduct_Tbl_CommentProduct" Association="DB_PortfolioModel.FK_Tbl_CommentProduct_Tbl_CommentProduct">
+      <End Role="Tbl_CommentProduct" EntitySet="Tbl_CommentProduct" />
+      <End Role="Tbl_CommentProduct1" EntitySet="Tbl_CommentProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_CommentProduct_Tbl_Products" Association="DB_PortfolioModel.FK_Tbl_CommentProduct_Tbl_Products">
+      <End Role="Tbl_Products" EntitySet="Tbl_Products" />
+      <End Role="Tbl_CommentProduct" EntitySet="Tbl_CommentProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_CommentProduct_Tbl_ReasonRating" Association="DB_PortfolioModel.FK_Tbl_CommentProduct_Tbl_ReasonRating">
+      <End Role="Tbl_ReasonRating" EntitySet="Tbl_ReasonRating" />
+      <End Role="Tbl_CommentProduct" EntitySet="Tbl_CommentProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_CommentProduct_Tbl_User" Association="DB_PortfolioModel.FK_Tbl_CommentProduct_Tbl_User">
+      <End Role="Tbl_User" EntitySet="Tbl_User" />
+      <End Role="Tbl_CommentProduct" EntitySet="Tbl_CommentProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_SellFactor_Tbl_Coupon" Association="DB_PortfolioModel.FK_Tbl_SellFactor_Tbl_Coupon">
+      <End Role="Tbl_Coupon" EntitySet="Tbl_Coupon" />
+      <End Role="Tbl_SellFactor" EntitySet="Tbl_SellFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_CustomerCart_Tbl_Products" Association="DB_PortfolioModel.FK_Tbl_CustomerCart_Tbl_Products">
+      <End Role="Tbl_Products" EntitySet="Tbl_Products" />
+      <End Role="Tbl_CustomerCart" EntitySet="Tbl_CustomerCart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_CustomerCart_Tbl_User" Association="DB_PortfolioModel.FK_Tbl_CustomerCart_Tbl_User">
+      <End Role="Tbl_User" EntitySet="Tbl_User" />
+      <End Role="Tbl_CustomerCart" EntitySet="Tbl_CustomerCart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Salseman_Tbl_Gender" Association="DB_PortfolioModel.FK_Tbl_Salseman_Tbl_Gender">
+      <End Role="Tbl_Gender" EntitySet="Tbl_Gender" />
+      <End Role="Tbl_Salseman" EntitySet="Tbl_Salseman" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_User_Tbl_Gender" Association="DB_PortfolioModel.FK_Tbl_User_Tbl_Gender">
+      <End Role="Tbl_Gender" EntitySet="Tbl_Gender" />
+      <End Role="Tbl_User" EntitySet="Tbl_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Link_Tbl_LinkType" Association="DB_PortfolioModel.FK_Tbl_Link_Tbl_LinkType">
+      <End Role="Tbl_LinkType" EntitySet="Tbl_LinkType" />
+      <End Role="Tbl_Link" EntitySet="Tbl_Link" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Link_Tbl_User" Association="DB_PortfolioModel.FK_Tbl_Link_Tbl_User">
+      <End Role="Tbl_User" EntitySet="Tbl_User" />
+      <End Role="Tbl_Link" EntitySet="Tbl_Link" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Location_Tbl_User" Association="DB_PortfolioModel.FK_Tbl_Location_Tbl_User">
+      <End Role="Tbl_User" EntitySet="Tbl_User" />
+      <End Role="Tbl_Location" EntitySet="Tbl_Location" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Product_Picture_Tbl_Picture" Association="DB_PortfolioModel.FK_Tbl_Product_Picture_Tbl_Picture">
+      <End Role="Tbl_Picture" EntitySet="Tbl_Picture" />
+      <End Role="Tbl_Product_Picture" EntitySet="Tbl_Product_Picture" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_UserPicture_Tbl_Picture" Association="DB_PortfolioModel.FK_Tbl_UserPicture_Tbl_Picture">
+      <End Role="Tbl_Picture" EntitySet="Tbl_Picture" />
+      <End Role="Tbl_UserPicture" EntitySet="Tbl_UserPicture" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Price_Products_Tbl_Price" Association="DB_PortfolioModel.FK_Tbl_Price_Products_Tbl_Price">
+      <End Role="Tbl_Price" EntitySet="Tbl_Price" />
+      <End Role="Tbl_Price_Products" EntitySet="Tbl_Price_Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Price_Products_Tbl_Products" Association="DB_PortfolioModel.FK_Tbl_Price_Products_Tbl_Products">
+      <End Role="Tbl_Products" EntitySet="Tbl_Products" />
+      <End Role="Tbl_Price_Products" EntitySet="Tbl_Price_Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Product_Picture_Tbl_Products" Association="DB_PortfolioModel.FK_Tbl_Product_Picture_Tbl_Products">
+      <End Role="Tbl_Products" EntitySet="Tbl_Products" />
+      <End Role="Tbl_Product_Picture" EntitySet="Tbl_Product_Picture" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Product_Tag_Tbl_Products" Association="DB_PortfolioModel.FK_Tbl_Product_Tag_Tbl_Products">
+      <End Role="Tbl_Products" EntitySet="Tbl_Products" />
+      <End Role="Tbl_Product_Tag" EntitySet="Tbl_Product_Tag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Product_Tag_Tbl_Tag" Association="DB_PortfolioModel.FK_Tbl_Product_Tag_Tbl_Tag">
+      <End Role="Tbl_Tag" EntitySet="Tbl_Tag" />
+      <End Role="Tbl_Product_Tag" EntitySet="Tbl_Product_Tag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_SellFactorDetail_Tbl_Products" Association="DB_PortfolioModel.FK_Tbl_SellFactorDetail_Tbl_Products">
+      <End Role="Tbl_Products" EntitySet="Tbl_Products" />
+      <End Role="Tbl_SellFactorDetail" EntitySet="Tbl_SellFactorDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_SellFactor_Tbl_User" Association="DB_PortfolioModel.FK_Tbl_SellFactor_Tbl_User">
+      <End Role="Tbl_User" EntitySet="Tbl_User" />
+      <End Role="Tbl_SellFactor" EntitySet="Tbl_SellFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_SellFactorDetail_Tbl_SellFactor" Association="DB_PortfolioModel.FK_Tbl_SellFactorDetail_Tbl_SellFactor">
+      <End Role="Tbl_SellFactor" EntitySet="Tbl_SellFactor" />
+      <End Role="Tbl_SellFactorDetail" EntitySet="Tbl_SellFactorDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_User_Tbl_UserType" Association="DB_PortfolioModel.FK_Tbl_User_Tbl_UserType">
+      <End Role="Tbl_UserType" EntitySet="Tbl_UserType" />
+      <End Role="Tbl_User" EntitySet="Tbl_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_UserPicture_Tbl_User" Association="DB_PortfolioModel.FK_Tbl_UserPicture_Tbl_User">
+      <End Role="Tbl_User" EntitySet="Tbl_User" />
+      <End Role="Tbl_UserPicture" EntitySet="Tbl_UserPicture" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Blog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="Int64" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="ViewBlog_Count" Type="Int32" />
+    <NavigationProperty Name="Tbl_CommentBlog" Relationship="DB_PortfolioModel.FK_Tbl_Comment_Tbl_Post" FromRole="Tbl_Blog" ToRole="Tbl_CommentBlog" />
+    <NavigationProperty Name="Tbl_Blog_Picture" Relationship="DB_PortfolioModel.FK_Tbl_Post_Picture_Tbl_Post" FromRole="Tbl_Blog" ToRole="Tbl_Blog_Picture" />
+    <NavigationProperty Name="Tbl_Blog_Tag" Relationship="DB_PortfolioModel.FK_Tbl_Post_Tag_Tbl_Blog" FromRole="Tbl_Blog" ToRole="Tbl_Blog_Tag" />
+    <NavigationProperty Name="Tbl_User" Relationship="DB_PortfolioModel.FK_Tbl_Post_Tbl_User" FromRole="Tbl_Blog" ToRole="Tbl_User" />
+  </EntityType>
+  <EntityType Name="Tbl_Blog_Picture">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Blog_Id" Type="Int64" />
+    <Property Name="Picture_Id" Type="Int64" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_Blog" Relationship="DB_PortfolioModel.FK_Tbl_Post_Picture_Tbl_Post" FromRole="Tbl_Blog_Picture" ToRole="Tbl_Blog" />
+    <NavigationProperty Name="Tbl_Picture" Relationship="DB_PortfolioModel.FK_Tbl_Post_Picture_Tbl_Picture" FromRole="Tbl_Blog_Picture" ToRole="Tbl_Picture" />
+  </EntityType>
+  <EntityType Name="Tbl_Blog_Tag">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Blog_Id" Type="Int64" />
+    <Property Name="Tag_Id" Type="Int32" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_Blog" Relationship="DB_PortfolioModel.FK_Tbl_Post_Tag_Tbl_Blog" FromRole="Tbl_Blog_Tag" ToRole="Tbl_Blog" />
+    <NavigationProperty Name="Tbl_Tag" Relationship="DB_PortfolioModel.FK_Tbl_Post_Tag_Tbl_Tag" FromRole="Tbl_Blog_Tag" ToRole="Tbl_Tag" />
+  </EntityType>
+  <EntityType Name="Tbl_BuyFactor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Salesman_Id" Type="Int32" />
+    <Property Name="TotalPrice" Type="Int32" />
+    <Property Name="PayPrice" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="GetDate" Type="DateTime" Precision="3" />
+    <Property Name="FactorNumber" Type="Int32" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_Salseman" Relationship="DB_PortfolioModel.FK_Tbl_BuyFactor_Tbl_Salseman" FromRole="Tbl_BuyFactor" ToRole="Tbl_Salseman" />
+    <NavigationProperty Name="Tbl_BuyFactorDetail" Relationship="DB_PortfolioModel.FK_Tbl_BuyFactorDetail_Tbl_BuyFactor" FromRole="Tbl_BuyFactor" ToRole="Tbl_BuyFactorDetail" />
+  </EntityType>
+  <EntityType Name="Tbl_BuyFactorDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Products_Id" Type="Int64" />
+    <Property Name="BuyFactor_Id" Type="Int64" />
+    <Property Name="User_Id" Type="Int64" />
+    <Property Name="UnitPrice" Type="Int32" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_BuyFactor" Relationship="DB_PortfolioModel.FK_Tbl_BuyFactorDetail_Tbl_BuyFactor" FromRole="Tbl_BuyFactorDetail" ToRole="Tbl_BuyFactor" />
+    <NavigationProperty Name="Tbl_Products" Relationship="DB_PortfolioModel.FK_Tbl_BuyFactorDetail_Tbl_Products" FromRole="Tbl_BuyFactorDetail" ToRole="Tbl_Products" />
+    <NavigationProperty Name="Tbl_User" Relationship="DB_PortfolioModel.FK_Tbl_BuyFactorDetail_Tbl_User" FromRole="Tbl_BuyFactorDetail" ToRole="Tbl_User" />
+  </EntityType>
+  <EntityType Name="Tbl_Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tbl_Products" Relationship="DB_PortfolioModel.FK_Tbl_Products_Tbl_Category" FromRole="Tbl_Category" ToRole="Tbl_Products" />
+  </EntityType>
+  <EntityType Name="Tbl_CommentBlog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Blog_Id" Type="Int64" />
+    <Property Name="User_Id" Type="Int64" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RepllayTo" Type="Int64" />
+    <Property Name="PointOf100" Type="Byte" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_Blog" Relationship="DB_PortfolioModel.FK_Tbl_Comment_Tbl_Post" FromRole="Tbl_CommentBlog" ToRole="Tbl_Blog" />
+    <NavigationProperty Name="Tbl_CommentBlog1" Relationship="DB_PortfolioModel.FK_Tbl_Comment_Tbl_Comment" FromRole="Tbl_CommentBlog" ToRole="Tbl_CommentBlog1" />
+    <NavigationProperty Name="Tbl_CommentBlog2" Relationship="DB_PortfolioModel.FK_Tbl_Comment_Tbl_Comment" FromRole="Tbl_CommentBlog1" ToRole="Tbl_CommentBlog" />
+    <NavigationProperty Name="Tbl_User" Relationship="DB_PortfolioModel.FK_Tbl_Comment_Tbl_User" FromRole="Tbl_CommentBlog" ToRole="Tbl_User" />
+  </EntityType>
+  <EntityType Name="Tbl_CommentProduct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Products_Id" Type="Int64" />
+    <Property Name="ReasonRating_Id" Type="Byte" />
+    <Property Name="Text" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RepllayTo" Type="Int64" />
+    <Property Name="Point_Of100" Type="Byte" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="User_Id" Type="Int64" />
+    <NavigationProperty Name="Tbl_CommentProduct1" Relationship="DB_PortfolioModel.FK_Tbl_CommentProduct_Tbl_CommentProduct" FromRole="Tbl_CommentProduct" ToRole="Tbl_CommentProduct1" />
+    <NavigationProperty Name="Tbl_CommentProduct2" Relationship="DB_PortfolioModel.FK_Tbl_CommentProduct_Tbl_CommentProduct" FromRole="Tbl_CommentProduct1" ToRole="Tbl_CommentProduct" />
+    <NavigationProperty Name="Tbl_Products" Relationship="DB_PortfolioModel.FK_Tbl_CommentProduct_Tbl_Products" FromRole="Tbl_CommentProduct" ToRole="Tbl_Products" />
+    <NavigationProperty Name="Tbl_ReasonRating" Relationship="DB_PortfolioModel.FK_Tbl_CommentProduct_Tbl_ReasonRating" FromRole="Tbl_CommentProduct" ToRole="Tbl_ReasonRating" />
+    <NavigationProperty Name="Tbl_User" Relationship="DB_PortfolioModel.FK_Tbl_CommentProduct_Tbl_User" FromRole="Tbl_CommentProduct" ToRole="Tbl_User" />
+  </EntityType>
+  <EntityType Name="Tbl_ContactUS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Massage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Tbl_Coupon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OffCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="ExpDate" Type="DateTime" Precision="3" />
+    <Property Name="RemindCount" Type="Int32" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_SellFactor" Relationship="DB_PortfolioModel.FK_Tbl_SellFactor_Tbl_Coupon" FromRole="Tbl_Coupon" ToRole="Tbl_SellFactor" />
+  </EntityType>
+  <EntityType Name="Tbl_CustomerCart">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="Int64" />
+    <Property Name="Products_Id" Type="Int64" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_Products" Relationship="DB_PortfolioModel.FK_Tbl_CustomerCart_Tbl_Products" FromRole="Tbl_CustomerCart" ToRole="Tbl_Products" />
+    <NavigationProperty Name="Tbl_User" Relationship="DB_PortfolioModel.FK_Tbl_CustomerCart_Tbl_User" FromRole="Tbl_CustomerCart" ToRole="Tbl_User" />
+  </EntityType>
+  <EntityType Name="Tbl_Gender">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tbl_Salseman" Relationship="DB_PortfolioModel.FK_Tbl_Salseman_Tbl_Gender" FromRole="Tbl_Gender" ToRole="Tbl_Salseman" />
+    <NavigationProperty Name="Tbl_User" Relationship="DB_PortfolioModel.FK_Tbl_User_Tbl_Gender" FromRole="Tbl_Gender" ToRole="Tbl_User" />
+  </EntityType>
+  <EntityType Name="Tbl_Link">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="linkType_Id" Type="Byte" />
+    <Property Name="User_Id" Type="Int64" />
+    <Property Name="LinkPath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_LinkType" Relationship="DB_PortfolioModel.FK_Tbl_Link_Tbl_LinkType" FromRole="Tbl_Link" ToRole="Tbl_LinkType" />
+    <NavigationProperty Name="Tbl_User" Relationship="DB_PortfolioModel.FK_Tbl_Link_Tbl_User" FromRole="Tbl_Link" ToRole="Tbl_User" />
+  </EntityType>
+  <EntityType Name="Tbl_LinkType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tbl_Link" Relationship="DB_PortfolioModel.FK_Tbl_Link_Tbl_LinkType" FromRole="Tbl_LinkType" ToRole="Tbl_Link" />
+  </EntityType>
+  <EntityType Name="Tbl_Location">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="Int64" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="Byte" />
+    <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Alley" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Plaque" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Floor" Type="Byte" />
+    <Property Name="Unit" Type="Byte" />
+    <Property Name="PostalCode" Type="Int16" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_User" Relationship="DB_PortfolioModel.FK_Tbl_Location_Tbl_User" FromRole="Tbl_Location" ToRole="Tbl_User" />
+  </EntityType>
+  <EntityType Name="Tbl_Picture">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PicturePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_Blog_Picture" Relationship="DB_PortfolioModel.FK_Tbl_Post_Picture_Tbl_Picture" FromRole="Tbl_Picture" ToRole="Tbl_Blog_Picture" />
+    <NavigationProperty Name="Tbl_Product_Picture" Relationship="DB_PortfolioModel.FK_Tbl_Product_Picture_Tbl_Picture" FromRole="Tbl_Picture" ToRole="Tbl_Product_Picture" />
+    <NavigationProperty Name="Tbl_UserPicture" Relationship="DB_PortfolioModel.FK_Tbl_UserPicture_Tbl_Picture" FromRole="Tbl_Picture" ToRole="Tbl_UserPicture" />
+  </EntityType>
+  <EntityType Name="Tbl_Price">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_Price_Products" Relationship="DB_PortfolioModel.FK_Tbl_Price_Products_Tbl_Price" FromRole="Tbl_Price" ToRole="Tbl_Price_Products" />
+  </EntityType>
+  <EntityType Name="Tbl_Price_Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Price_Id" Type="Int64" />
+    <Property Name="Products_Id" Type="Int64" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_Price" Relationship="DB_PortfolioModel.FK_Tbl_Price_Products_Tbl_Price" FromRole="Tbl_Price_Products" ToRole="Tbl_Price" />
+    <NavigationProperty Name="Tbl_Products" Relationship="DB_PortfolioModel.FK_Tbl_Price_Products_Tbl_Products" FromRole="Tbl_Price_Products" ToRole="Tbl_Products" />
+  </EntityType>
+  <EntityType Name="Tbl_Product_Picture">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_Id" Type="Int64" />
+    <Property Name="Picture_Id" Type="Int64" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_Picture" Relationship="DB_PortfolioModel.FK_Tbl_Product_Picture_Tbl_Picture" FromRole="Tbl_Product_Picture" ToRole="Tbl_Picture" />
+    <NavigationProperty Name="Tbl_Products" Relationship="DB_PortfolioModel.FK_Tbl_Product_Picture_Tbl_Products" FromRole="Tbl_Product_Picture" ToRole="Tbl_Products" />
+  </EntityType>
+  <EntityType Name="Tbl_Product_Tag">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Products_Id" Type="Int64" />
+    <Property Name="Tag_Id" Type="Int32" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_Products" Relationship="DB_PortfolioModel.FK_Tbl_Product_Tag_Tbl_Products" FromRole="Tbl_Product_Tag" ToRole="Tbl_Products" />
+    <NavigationProperty Name="Tbl_Tag" Relationship="DB_PortfolioModel.FK_Tbl_Product_Tag_Tbl_Tag" FromRole="Tbl_Product_Tag" ToRole="Tbl_Tag" />
+  </EntityType>
+  <EntityType Name="Tbl_Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category_Id" Type="Int16" />
+    <Property Name="NameProduct" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Inventory" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_BuyFactorDetail" Relationship="DB_PortfolioModel.FK_Tbl_BuyFactorDetail_Tbl_Products" FromRole="Tbl_Products" ToRole="Tbl_BuyFactorDetail" />
+    <NavigationProperty Name="Tbl_Category" Relationship="DB_PortfolioModel.FK_Tbl_Products_Tbl_Category" FromRole="Tbl_Products" ToRole="Tbl_Category" />
+    <NavigationProperty Name="Tbl_CommentProduct" Relationship="DB_PortfolioModel.FK_Tbl_CommentProduct_Tbl_Products" FromRole="Tbl_Products" ToRole="Tbl_CommentProduct" />
+    <NavigationProperty Name="Tbl_CustomerCart" Relationship="DB_PortfolioModel.FK_Tbl_CustomerCart_Tbl_Products" FromRole="Tbl_Products" ToRole="Tbl_CustomerCart" />
+    <NavigationProperty Name="Tbl_Price_Products" Relationship="DB_PortfolioModel.FK_Tbl_Price_Products_Tbl_Products" FromRole="Tbl_Products" ToRole="Tbl_Price_Products" />
+    <NavigationProperty Name="Tbl_Product_Picture" Relationship="DB_PortfolioModel.FK_Tbl_Product_Picture_Tbl_Products" FromRole="Tbl_Products" ToRole="Tbl_Product_Picture" />
+    <NavigationProperty Name="Tbl_Product_Tag" Relationship="DB_PortfolioModel.FK_Tbl_Product_Tag_Tbl_Products" FromRole="Tbl_Products" ToRole="Tbl_Product_Tag" />
+    <NavigationProperty Name="Tbl_SellFactorDetail" Relationship="DB_PortfolioModel.FK_Tbl_SellFactorDetail_Tbl_Products" FromRole="Tbl_Products" ToRole="Tbl_SellFactorDetail" />
+  </EntityType>
+  <EntityType Name="Tbl_ReasonRating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_CommentProduct" Relationship="DB_PortfolioModel.FK_Tbl_CommentProduct_Tbl_ReasonRating" FromRole="Tbl_ReasonRating" ToRole="Tbl_CommentProduct" />
+  </EntityType>
+  <EntityType Name="Tbl_Salseman">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gender_Id" Type="Byte" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NationalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_BuyFactor" Relationship="DB_PortfolioModel.FK_Tbl_BuyFactor_Tbl_Salseman" FromRole="Tbl_Salseman" ToRole="Tbl_BuyFactor" />
+    <NavigationProperty Name="Tbl_Gender" Relationship="DB_PortfolioModel.FK_Tbl_Salseman_Tbl_Gender" FromRole="Tbl_Salseman" ToRole="Tbl_Gender" />
+  </EntityType>
+  <EntityType Name="Tbl_SellFactor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="Int64" />
+    <Property Name="Coupon_Id" Type="Int64" />
+    <Property Name="TotalPrice" Type="Int32" />
+    <Property Name="PayPrice" Type="Int32" />
+    <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_Coupon" Relationship="DB_PortfolioModel.FK_Tbl_SellFactor_Tbl_Coupon" FromRole="Tbl_SellFactor" ToRole="Tbl_Coupon" />
+    <NavigationProperty Name="Tbl_User" Relationship="DB_PortfolioModel.FK_Tbl_SellFactor_Tbl_User" FromRole="Tbl_SellFactor" ToRole="Tbl_User" />
+    <NavigationProperty Name="Tbl_SellFactorDetail" Relationship="DB_PortfolioModel.FK_Tbl_SellFactorDetail_Tbl_SellFactor" FromRole="Tbl_SellFactor" ToRole="Tbl_SellFactorDetail" />
+  </EntityType>
+  <EntityType Name="Tbl_SellFactorDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Products_Id" Type="Int64" />
+    <Property Name="SellFactor_Id" Type="Int64" />
+    <Property Name="ProductCount" Type="Int32" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_Products" Relationship="DB_PortfolioModel.FK_Tbl_SellFactorDetail_Tbl_Products" FromRole="Tbl_SellFactorDetail" ToRole="Tbl_Products" />
+    <NavigationProperty Name="Tbl_SellFactor" Relationship="DB_PortfolioModel.FK_Tbl_SellFactorDetail_Tbl_SellFactor" FromRole="Tbl_SellFactorDetail" ToRole="Tbl_SellFactor" />
+  </EntityType>
+  <EntityType Name="Tbl_Subscribe">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Tbl_Tag">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_Blog_Tag" Relationship="DB_PortfolioModel.FK_Tbl_Post_Tag_Tbl_Tag" FromRole="Tbl_Tag" ToRole="Tbl_Blog_Tag" />
+    <NavigationProperty Name="Tbl_Product_Tag" Relationship="DB_PortfolioModel.FK_Tbl_Product_Tag_Tbl_Tag" FromRole="Tbl_Tag" ToRole="Tbl_Product_Tag" />
+  </EntityType>
+  <EntityType Name="Tbl_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserType_Id" Type="Byte" />
+    <Property Name="Gender_Id" Type="Byte" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NationalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CompleteInformation" Type="Boolean" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_Blog" Relationship="DB_PortfolioModel.FK_Tbl_Post_Tbl_User" FromRole="Tbl_User" ToRole="Tbl_Blog" />
+    <NavigationProperty Name="Tbl_BuyFactorDetail" Relationship="DB_PortfolioModel.FK_Tbl_BuyFactorDetail_Tbl_User" FromRole="Tbl_User" ToRole="Tbl_BuyFactorDetail" />
+    <NavigationProperty Name="Tbl_CommentBlog" Relationship="DB_PortfolioModel.FK_Tbl_Comment_Tbl_User" FromRole="Tbl_User" ToRole="Tbl_CommentBlog" />
+    <NavigationProperty Name="Tbl_CommentProduct" Relationship="DB_PortfolioModel.FK_Tbl_CommentProduct_Tbl_User" FromRole="Tbl_User" ToRole="Tbl_CommentProduct" />
+    <NavigationProperty Name="Tbl_CustomerCart" Relationship="DB_PortfolioModel.FK_Tbl_CustomerCart_Tbl_User" FromRole="Tbl_User" ToRole="Tbl_CustomerCart" />
+    <NavigationProperty Name="Tbl_Gender" Relationship="DB_PortfolioModel.FK_Tbl_User_Tbl_Gender" FromRole="Tbl_User" ToRole="Tbl_Gender" />
+    <NavigationProperty Name="Tbl_Link" Relationship="DB_PortfolioModel.FK_Tbl_Link_Tbl_User" FromRole="Tbl_User" ToRole="Tbl_Link" />
+    <NavigationProperty Name="Tbl_Location" Relationship="DB_PortfolioModel.FK_Tbl_Location_Tbl_User" FromRole="Tbl_User" ToRole="Tbl_Location" />
+    <NavigationProperty Name="Tbl_SellFactor" Relationship="DB_PortfolioModel.FK_Tbl_SellFactor_Tbl_User" FromRole="Tbl_User" ToRole="Tbl_SellFactor" />
+    <NavigationProperty Name="Tbl_UserType" Relationship="DB_PortfolioModel.FK_Tbl_User_Tbl_UserType" FromRole="Tbl_User" ToRole="Tbl_UserType" />
+    <NavigationProperty Name="Tbl_UserPicture" Relationship="DB_PortfolioModel.FK_Tbl_UserPicture_Tbl_User" FromRole="Tbl_User" ToRole="Tbl_UserPicture" />
+  </EntityType>
+  <EntityType Name="Tbl_UserPicture">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="Int64" />
+    <Property Name="Picture_Id" Type="Int64" />
+    <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator_Id" Type="Int32" />
+    <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deactivetor_Id" Type="Int32" />
+    <Property Name="ModificationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Modificator_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Tbl_Picture" Relationship="DB_PortfolioModel.FK_Tbl_UserPicture_Tbl_Picture" FromRole="Tbl_UserPicture" ToRole="Tbl_Picture" />
+    <NavigationProperty Name="Tbl_User" Relationship="DB_PortfolioModel.FK_Tbl_UserPicture_Tbl_User" FromRole="Tbl_UserPicture" ToRole="Tbl_User" />
+  </EntityType>
+  <EntityType Name="Tbl_UserType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tbl_User" Relationship="DB_PortfolioModel.FK_Tbl_User_Tbl_UserType" FromRole="Tbl_UserType" ToRole="Tbl_User" />
+  </EntityType>
+  <Association Name="FK_Tbl_Comment_Tbl_Post">
+    <End Type="DB_PortfolioModel.Tbl_Blog" Role="Tbl_Blog" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_CommentBlog" Role="Tbl_CommentBlog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Blog">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_CommentBlog">
+        <PropertyRef Name="Blog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Post_Picture_Tbl_Post">
+    <End Type="DB_PortfolioModel.Tbl_Blog" Role="Tbl_Blog" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_Blog_Picture" Role="Tbl_Blog_Picture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Blog">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_Blog_Picture">
+        <PropertyRef Name="Blog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Post_Tag_Tbl_Blog">
+    <End Type="DB_PortfolioModel.Tbl_Blog" Role="Tbl_Blog" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_Blog_Tag" Role="Tbl_Blog_Tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Blog">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_Blog_Tag">
+        <PropertyRef Name="Blog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Post_Tbl_User">
+    <End Type="DB_PortfolioModel.Tbl_User" Role="Tbl_User" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_Blog" Role="Tbl_Blog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_Blog">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Post_Picture_Tbl_Picture">
+    <End Type="DB_PortfolioModel.Tbl_Picture" Role="Tbl_Picture" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_Blog_Picture" Role="Tbl_Blog_Picture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Picture">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_Blog_Picture">
+        <PropertyRef Name="Picture_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Post_Tag_Tbl_Tag">
+    <End Type="DB_PortfolioModel.Tbl_Tag" Role="Tbl_Tag" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_Blog_Tag" Role="Tbl_Blog_Tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Tag">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_Blog_Tag">
+        <PropertyRef Name="Tag_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_BuyFactor_Tbl_Salseman">
+    <End Type="DB_PortfolioModel.Tbl_Salseman" Role="Tbl_Salseman" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_BuyFactor" Role="Tbl_BuyFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Salseman">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_BuyFactor">
+        <PropertyRef Name="Salesman_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_BuyFactorDetail_Tbl_BuyFactor">
+    <End Type="DB_PortfolioModel.Tbl_BuyFactor" Role="Tbl_BuyFactor" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_BuyFactorDetail" Role="Tbl_BuyFactorDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_BuyFactor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_BuyFactorDetail">
+        <PropertyRef Name="BuyFactor_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_BuyFactorDetail_Tbl_Products">
+    <End Type="DB_PortfolioModel.Tbl_Products" Role="Tbl_Products" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_BuyFactorDetail" Role="Tbl_BuyFactorDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_BuyFactorDetail">
+        <PropertyRef Name="Products_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_BuyFactorDetail_Tbl_User">
+    <End Type="DB_PortfolioModel.Tbl_User" Role="Tbl_User" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_BuyFactorDetail" Role="Tbl_BuyFactorDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_BuyFactorDetail">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Products_Tbl_Category">
+    <End Type="DB_PortfolioModel.Tbl_Category" Role="Tbl_Category" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_Products" Role="Tbl_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_Products">
+        <PropertyRef Name="Category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Comment_Tbl_Comment">
+    <End Type="DB_PortfolioModel.Tbl_CommentBlog" Role="Tbl_CommentBlog" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_CommentBlog" Role="Tbl_CommentBlog1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_CommentBlog">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_CommentBlog1">
+        <PropertyRef Name="RepllayTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Comment_Tbl_User">
+    <End Type="DB_PortfolioModel.Tbl_User" Role="Tbl_User" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_CommentBlog" Role="Tbl_CommentBlog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_CommentBlog">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_CommentProduct_Tbl_CommentProduct">
+    <End Type="DB_PortfolioModel.Tbl_CommentProduct" Role="Tbl_CommentProduct" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_CommentProduct" Role="Tbl_CommentProduct1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_CommentProduct">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_CommentProduct1">
+        <PropertyRef Name="RepllayTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_CommentProduct_Tbl_Products">
+    <End Type="DB_PortfolioModel.Tbl_Products" Role="Tbl_Products" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_CommentProduct" Role="Tbl_CommentProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_CommentProduct">
+        <PropertyRef Name="Products_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_CommentProduct_Tbl_ReasonRating">
+    <End Type="DB_PortfolioModel.Tbl_ReasonRating" Role="Tbl_ReasonRating" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_CommentProduct" Role="Tbl_CommentProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_ReasonRating">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_CommentProduct">
+        <PropertyRef Name="ReasonRating_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_CommentProduct_Tbl_User">
+    <End Type="DB_PortfolioModel.Tbl_User" Role="Tbl_User" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_CommentProduct" Role="Tbl_CommentProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_CommentProduct">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_SellFactor_Tbl_Coupon">
+    <End Type="DB_PortfolioModel.Tbl_Coupon" Role="Tbl_Coupon" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_SellFactor" Role="Tbl_SellFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Coupon">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_SellFactor">
+        <PropertyRef Name="Coupon_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_CustomerCart_Tbl_Products">
+    <End Type="DB_PortfolioModel.Tbl_Products" Role="Tbl_Products" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_CustomerCart" Role="Tbl_CustomerCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_CustomerCart">
+        <PropertyRef Name="Products_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_CustomerCart_Tbl_User">
+    <End Type="DB_PortfolioModel.Tbl_User" Role="Tbl_User" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_CustomerCart" Role="Tbl_CustomerCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_CustomerCart">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Salseman_Tbl_Gender">
+    <End Type="DB_PortfolioModel.Tbl_Gender" Role="Tbl_Gender" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_Salseman" Role="Tbl_Salseman" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Gender">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_Salseman">
+        <PropertyRef Name="Gender_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_User_Tbl_Gender">
+    <End Type="DB_PortfolioModel.Tbl_Gender" Role="Tbl_Gender" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_User" Role="Tbl_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Gender">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_User">
+        <PropertyRef Name="Gender_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Link_Tbl_LinkType">
+    <End Type="DB_PortfolioModel.Tbl_LinkType" Role="Tbl_LinkType" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_Link" Role="Tbl_Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_LinkType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_Link">
+        <PropertyRef Name="linkType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Link_Tbl_User">
+    <End Type="DB_PortfolioModel.Tbl_User" Role="Tbl_User" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_Link" Role="Tbl_Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_Link">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Location_Tbl_User">
+    <End Type="DB_PortfolioModel.Tbl_User" Role="Tbl_User" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_Location" Role="Tbl_Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_Location">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Product_Picture_Tbl_Picture">
+    <End Type="DB_PortfolioModel.Tbl_Picture" Role="Tbl_Picture" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_Product_Picture" Role="Tbl_Product_Picture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Picture">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_Product_Picture">
+        <PropertyRef Name="Picture_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_UserPicture_Tbl_Picture">
+    <End Type="DB_PortfolioModel.Tbl_Picture" Role="Tbl_Picture" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_UserPicture" Role="Tbl_UserPicture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Picture">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_UserPicture">
+        <PropertyRef Name="Picture_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Price_Products_Tbl_Price">
+    <End Type="DB_PortfolioModel.Tbl_Price" Role="Tbl_Price" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_Price_Products" Role="Tbl_Price_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Price">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_Price_Products">
+        <PropertyRef Name="Price_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Price_Products_Tbl_Products">
+    <End Type="DB_PortfolioModel.Tbl_Products" Role="Tbl_Products" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_Price_Products" Role="Tbl_Price_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_Price_Products">
+        <PropertyRef Name="Products_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Product_Picture_Tbl_Products">
+    <End Type="DB_PortfolioModel.Tbl_Products" Role="Tbl_Products" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_Product_Picture" Role="Tbl_Product_Picture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_Product_Picture">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Product_Tag_Tbl_Products">
+    <End Type="DB_PortfolioModel.Tbl_Products" Role="Tbl_Products" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_Product_Tag" Role="Tbl_Product_Tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_Product_Tag">
+        <PropertyRef Name="Products_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Product_Tag_Tbl_Tag">
+    <End Type="DB_PortfolioModel.Tbl_Tag" Role="Tbl_Tag" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_Product_Tag" Role="Tbl_Product_Tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Tag">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_Product_Tag">
+        <PropertyRef Name="Tag_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_SellFactorDetail_Tbl_Products">
+    <End Type="DB_PortfolioModel.Tbl_Products" Role="Tbl_Products" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_SellFactorDetail" Role="Tbl_SellFactorDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_SellFactorDetail">
+        <PropertyRef Name="Products_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_SellFactor_Tbl_User">
+    <End Type="DB_PortfolioModel.Tbl_User" Role="Tbl_User" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_SellFactor" Role="Tbl_SellFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_SellFactor">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_SellFactorDetail_Tbl_SellFactor">
+    <End Type="DB_PortfolioModel.Tbl_SellFactor" Role="Tbl_SellFactor" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_SellFactorDetail" Role="Tbl_SellFactorDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_SellFactor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_SellFactorDetail">
+        <PropertyRef Name="SellFactor_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_User_Tbl_UserType">
+    <End Type="DB_PortfolioModel.Tbl_UserType" Role="Tbl_UserType" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_User" Role="Tbl_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_UserType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_User">
+        <PropertyRef Name="UserType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_UserPicture_Tbl_User">
+    <End Type="DB_PortfolioModel.Tbl_User" Role="Tbl_User" Multiplicity="0..1" />
+    <End Type="DB_PortfolioModel.Tbl_UserPicture" Role="Tbl_UserPicture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tbl_UserPicture">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
