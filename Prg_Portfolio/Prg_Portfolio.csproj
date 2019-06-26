@@ -380,6 +380,7 @@
     <Compile Include="Models\ViewModel\Vm_ProSellFactorDetail.cs" />
     <Compile Include="Models\ViewModel\Vm_SellFactorDetail.cs" />
     <Compile Include="Models\ViewModel\Vm_Sentencess.cs" />
+    <Compile Include="Models\ViewModel\VM_ShopPage.cs" />
     <Compile Include="Models\ViewModel\Vm_Subscribe.cs" />
     <Compile Include="Models\ViewModel\Vm_Tag.cs" />
     <Compile Include="Models\ViewModel\Vm_User.cs" />

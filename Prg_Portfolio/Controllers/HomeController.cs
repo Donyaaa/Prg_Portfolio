@@ -23,6 +23,7 @@ namespace Prg_Portfolio.Controllers
         UnitOfWork db = new UnitOfWork();
         Vm_Index indexVm = new Vm_Index();
         VM_PageBlog PageBlog = new VM_PageBlog();
+        VM_ShopPage ShopPage = new VM_ShopPage();
         Thread tr1;
         //Thread tr2;
 
@@ -178,6 +179,7 @@ namespace Prg_Portfolio.Controllers
 
         public ActionResult Shop()
         {
+
             return View();
         }
 
