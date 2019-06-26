@@ -196,6 +196,46 @@ namespace Prg_Portfolio.Models.Repository
                 return _Rep_CommentProduct;
             }
         }
+
+        private Rep<Tbl_Tag> _Rep_Tag;
+        public Rep<Tbl_Tag> Rep_Tag
+        {
+            get
+            {
+                if (_Rep_Tag == null)
+                {
+                    _Rep_Tag = new Rep<Tbl_Tag>(db);
+                }
+                return _Rep_Tag;
+            }
+        }
+
+        private Rep<Tbl_Sentensess> _Rep_Sentensess;
+        public Rep<Tbl_Sentensess> Rep_Sentensess
+        {
+            get
+            {
+                if (_Rep_Sentensess == null)
+                {
+                    _Rep_Sentensess = new Rep<Tbl_Sentensess>(db);
+                }
+                return _Rep_Sentensess;
+            }
+        }
+
+        private Rep<Tbl_CommentBlog> _Rep_CommentBlog;
+        public Rep<Tbl_CommentBlog> Rep_CommentBlog
+        {
+            get
+            {
+                if (_Rep_CommentBlog == null)
+                {
+                    _Rep_CommentBlog = new Rep<Tbl_CommentBlog>(db);
+                }
+                return _Rep_CommentBlog;
+            }
+        }
+
         public void Dispose()
         {
             db.Dispose();

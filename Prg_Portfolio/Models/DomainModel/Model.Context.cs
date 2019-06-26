@@ -53,6 +53,7 @@ namespace Prg_Portfolio.Models.DomainModel
         public virtual DbSet<Tbl_Salseman> Tbl_Salseman { get; set; }
         public virtual DbSet<Tbl_SellFactor> Tbl_SellFactor { get; set; }
         public virtual DbSet<Tbl_SellFactorDetail> Tbl_SellFactorDetail { get; set; }
+        public virtual DbSet<Tbl_Sentensess> Tbl_Sentensess { get; set; }
         public virtual DbSet<Tbl_Subscribe> Tbl_Subscribe { get; set; }
         public virtual DbSet<Tbl_Tag> Tbl_Tag { get; set; }
         public virtual DbSet<Tbl_User> Tbl_User { get; set; }

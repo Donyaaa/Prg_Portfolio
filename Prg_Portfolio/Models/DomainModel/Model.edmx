@@ -117,7 +117,6 @@
           <Property Name="Text" Type="nvarchar(max)" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="RepllayTo" Type="bigint" />
-          <Property Name="PointOf100" Type="tinyint" />
           <Property Name="CreationDateTime" Type="datetime" />
           <Property Name="Creator_Id" Type="int" />
           <Property Name="DeactivationDateTime" Type="datetime" />
@@ -133,8 +132,8 @@
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Products_Id" Type="bigint" />
           <Property Name="ReasonRating_Id" Type="tinyint" />
-          <Property Name="Text" Type="nvarchar" MaxLength="50" />
-          <Property Name="Email" Type="varchar" MaxLength="20" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="Email" Type="varchar(max)" />
           <Property Name="RepllayTo" Type="bigint" />
           <Property Name="Point Of100" Type="tinyint" />
           <Property Name="CreationDateTime" Type="datetime" />
@@ -407,6 +406,14 @@
           <Property Name="ModificationDateTime" Type="datetime" />
           <Property Name="Modificator_Id" Type="int" />
           <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tbl_Sentensess">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="WriterName" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Tbl_Subscribe">
           <Key>
@@ -985,6 +992,7 @@
           <EntitySet Name="Tbl_Salseman" EntityType="Self.Tbl_Salseman" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_SellFactor" EntityType="Self.Tbl_SellFactor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_SellFactorDetail" EntityType="Self.Tbl_SellFactorDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Sentensess" EntityType="Self.Tbl_Sentensess" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Subscribe" EntityType="Self.Tbl_Subscribe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Tag" EntityType="Self.Tbl_Tag" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_User" EntityType="Self.Tbl_User" Schema="dbo" store:Type="Tables" />
@@ -1200,6 +1208,7 @@
           <EntitySet Name="Tbl_Salseman" EntityType="DB_PortfolioModel.Tbl_Salseman" />
           <EntitySet Name="Tbl_SellFactor" EntityType="DB_PortfolioModel.Tbl_SellFactor" />
           <EntitySet Name="Tbl_SellFactorDetail" EntityType="DB_PortfolioModel.Tbl_SellFactorDetail" />
+          <EntitySet Name="Tbl_Sentensess" EntityType="DB_PortfolioModel.Tbl_Sentensess" />
           <EntitySet Name="Tbl_Subscribe" EntityType="DB_PortfolioModel.Tbl_Subscribe" />
           <EntitySet Name="Tbl_Tag" EntityType="DB_PortfolioModel.Tbl_Tag" />
           <EntitySet Name="Tbl_User" EntityType="DB_PortfolioModel.Tbl_User" />
@@ -1491,7 +1500,6 @@
           <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RepllayTo" Type="Int64" />
-          <Property Name="PointOf100" Type="Byte" />
           <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
           <Property Name="Creator_Id" Type="Int32" />
           <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
@@ -1511,8 +1519,8 @@
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Products_Id" Type="Int64" />
           <Property Name="ReasonRating_Id" Type="Byte" />
-          <Property Name="Text" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="RepllayTo" Type="Int64" />
           <Property Name="Point_Of100" Type="Byte" />
           <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
@@ -1825,6 +1833,14 @@
           <Property Name="IsActive" Type="Boolean" />
           <NavigationProperty Name="Tbl_Products" Relationship="DB_PortfolioModel.FK_Tbl_SellFactorDetail_Tbl_Products" FromRole="Tbl_SellFactorDetail" ToRole="Tbl_Products" />
           <NavigationProperty Name="Tbl_SellFactor" Relationship="DB_PortfolioModel.FK_Tbl_SellFactorDetail_Tbl_SellFactor" FromRole="Tbl_SellFactorDetail" ToRole="Tbl_SellFactor" />
+        </EntityType>
+        <EntityType Name="Tbl_Sentensess">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WriterName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Tbl_Subscribe">
           <Key>
@@ -2510,7 +2526,6 @@
                 <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
                 <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
                 <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
-                <ScalarProperty Name="PointOf100" ColumnName="PointOf100" />
                 <ScalarProperty Name="RepllayTo" ColumnName="RepllayTo" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Text" ColumnName="Text" />
@@ -2816,6 +2831,15 @@
                 <ScalarProperty Name="ProductCount" ColumnName="ProductCount" />
                 <ScalarProperty Name="SellFactor_Id" ColumnName="SellFactor_Id" />
                 <ScalarProperty Name="Products_Id" ColumnName="Products_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Sentensess">
+            <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Sentensess">
+              <MappingFragment StoreEntitySet="Tbl_Sentensess">
+                <ScalarProperty Name="WriterName" ColumnName="WriterName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

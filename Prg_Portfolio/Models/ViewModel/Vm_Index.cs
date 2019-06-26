@@ -48,5 +48,6 @@ namespace Prg_Portfolio.Models.ViewModel
         /// View Model For CommentProduct And Picture Repository
         /// </summary>
         public IEnumerable<Vm_ComProList> VmPicProList { get; set; }
+
     }
 }

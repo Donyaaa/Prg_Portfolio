@@ -26,7 +26,6 @@ namespace Prg_Portfolio.Models.DomainModel
         public string Text { get; set; }
         public string Email { get; set; }
         public Nullable<long> RepllayTo { get; set; }
-        public Nullable<byte> PointOf100 { get; set; }
         public Nullable<System.DateTime> CreationDateTime { get; set; }
         public Nullable<int> Creator_Id { get; set; }
         public Nullable<System.DateTime> DeactivationDateTime { get; set; }

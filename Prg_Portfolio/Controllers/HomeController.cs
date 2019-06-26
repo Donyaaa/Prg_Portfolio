@@ -24,7 +24,7 @@ namespace Prg_Portfolio.Controllers
         Vm_Index indexVm = new Vm_Index();
         VM_PageBlog PageBlog = new VM_PageBlog();
         Thread tr1;
-        Thread tr2;
+        //Thread tr2;
 
         /// <summary>
         /// The Main Page
@@ -176,6 +176,11 @@ namespace Prg_Portfolio.Controllers
             }
         }
 
+        public ActionResult Shop()
+        {
+            return View();
+        }
+
         /// <summary>
         /// Descriptuion About The Owner Of The Site
         /// </summary>
@@ -239,7 +244,7 @@ namespace Prg_Portfolio.Controllers
                 PictureVMNew = new Vm_Picture { Name = e.Tbl_Picture.Name, PicturePath = e.Tbl_Picture.PicturePath },
                 UserName = db.Rep_Blog.Get(uj => uj.User_Id == e.Tbl_Blog.User_Id).Select(a => new Vm_User { FirstName = a.Tbl_User.FirstName, LastName = a.Tbl_User.LastName }).LastOrDefault()
             }).ToList();
-            PageBlog.PictureBlogVMNew = p2.Take(2);
+            PageBlog.PictureBlogVMNew = p2;
 
             //LeftSide Best Seller------------------------------------------------------------
             var m2 = db.Rep_SellFactorDetail.Get().Select(a => a).GroupBy(a => a.Products_Id).ToList().OrderByDescending(a => a.Count()).Take(3);
@@ -248,16 +253,16 @@ namespace Prg_Portfolio.Controllers
             {
                 var y1 = db.Rep_Product_Picture.Get(a => a.Product_Id == item.Key).Select(e => new Vm_PictureProduct
                 {
-                    ProductVMNew = new Vm_Product { NameProduct = e.Tbl_Products.NameProduct , Id=e.Tbl_Products.Id /*, Ratting=e.Tbl_Products.Tbl_CommentProduct.Average(a=>a.Point_Of100.Value)*/ },
+                    ProductVMNew = new Vm_Product { NameProduct = e.Tbl_Products.NameProduct, Id = e.Tbl_Products.Id /*, Ratting=e.Tbl_Products.Tbl_CommentProduct.Average(a=>a.Point_Of100.Value)*/ },
                     PicturVMNew = new Vm_Picture { Name = e.Tbl_Picture.Name, PicturePath = e.Tbl_Picture.PicturePath },
                     PriceVMNew = db.Rep_PriceProduct.Get(a => a.Products_Id == e.Product_Id).Select(a => new Vm_Price { Price = a.Tbl_Price.Price }).LastOrDefault()
                 }).ToList().FirstOrDefault();
 
                 Li2.Add(y1);
             }
-        PageBlog.PortofioProductVM2 = Li2;
-               //Footer------------------------------------------------------------
-               var m = db.Rep_SellFactorDetail.Get().Select(a => a).GroupBy(a => a.Products_Id).ToList().OrderByDescending(a => a.Count()).Take(2);
+            PageBlog.PortofioProductVM2 = Li2;
+            //Footer------------------------------------------------------------
+            var m = db.Rep_SellFactorDetail.Get().Select(a => a).GroupBy(a => a.Products_Id).ToList().OrderByDescending(a => a.Count()).Take(2);
             List<Vm_PictureProduct> Li = new List<Vm_PictureProduct>();
 
             foreach (var item in m)
@@ -272,7 +277,72 @@ namespace Prg_Portfolio.Controllers
                 Li.Add(y1);
             }
             PageBlog.PortofioProductVM = Li;
-            //-------------------------------------------------------------------
+            //tag-------------------------------------------------------------------
+            var tnt = db.Rep_Tag.Get().Select(a => new Vm_Tag { Title = a.Title }).ToList();
+
+            PageBlog.TagVM = tnt.Take(7);
+            return View(PageBlog);
+        }
+
+        public ActionResult BlogDetail(int id)
+        {
+
+            //Blog---------------------------------------------------------------
+            var p = db.Rep_Blog_Picture.Get().Select(e => new Vm_PictureBlog
+            {
+                BlogVMNew = new Vm_Blog { Title = e.Tbl_Blog.Title, Description = e.Tbl_Blog.Description, Text = e.Tbl_Blog.Text, Date = ((DateTime)e.Tbl_Blog.Date).DateTimeToShamsi() },
+                PictureVMNew = new Vm_Picture { Name = e.Tbl_Picture.Name, PicturePath = e.Tbl_Picture.PicturePath },
+                UserName = db.Rep_Blog.Get(uj => uj.User_Id == e.Tbl_Blog.User_Id).Select(a => new Vm_User { FirstName = a.Tbl_User.FirstName, LastName = a.Tbl_User.LastName }).LastOrDefault()
+            }).Where(x => x.BlogVMNew.Id == id).ToList();
+            PageBlog.PictureBlogVMNew = p;
+
+            //Sentensess---------------------------------------------------------
+            Random rnd = new Random();
+            var t2 = db.Rep_Sentensess.Get().Skip(rnd.Next(1, Convert.ToInt32(db.Rep_Sentensess.Get().Count())) - 1).Take(1).ToList().Select(rf => new Vm_Sentencess { Title = rf.Title, WriterName = rf.WriterName });
+            PageBlog.SentensessVM = t2;
+
+            //LeftSide Best Seller------------------------------------------------------------
+            var m2 = db.Rep_SellFactorDetail.Get().Select(a => a).GroupBy(a => a.Products_Id).ToList().OrderByDescending(a => a.Count()).Take(3);
+            List<Vm_PictureProduct> Li2 = new List<Vm_PictureProduct>();
+            foreach (var item in m2)
+            {
+                var y1 = db.Rep_Product_Picture.Get(a => a.Product_Id == item.Key).Select(e => new Vm_PictureProduct
+                {
+                    ProductVMNew = new Vm_Product { NameProduct = e.Tbl_Products.NameProduct, Id = e.Tbl_Products.Id /*, Ratting=e.Tbl_Products.Tbl_CommentProduct.Average(a=>a.Point_Of100.Value)*/ },
+                    PicturVMNew = new Vm_Picture { Name = e.Tbl_Picture.Name, PicturePath = e.Tbl_Picture.PicturePath },
+                    PriceVMNew = db.Rep_PriceProduct.Get(a => a.Products_Id == e.Product_Id).Select(a => new Vm_Price { Price = a.Tbl_Price.Price }).LastOrDefault()
+                }).ToList().FirstOrDefault();
+
+                Li2.Add(y1);
+            }
+            PageBlog.PortofioProductVM2 = Li2;
+
+            //Tag-------------------------------------------------------------------
+            var tnt = db.Rep_Tag.Get().Select(a => new Vm_Tag { Title = a.Title }).ToList();
+            PageBlog.TagVM = tnt.Take(7);
+
+            //Comment---------------------------------------------------------------
+            var cm = db.Rep_CommentBlog.Get(x => x.Id == x.Tbl_Blog.Id).Select(xr => new Vm_CommentBlog { Text = xr.Text, CreationDateTime =( (DateTime) xr.CreationDateTime).DateTimeToShamsi(), User_Id = xr.User_Id });
+
+            PageBlog.CommentBlogVM = cm.ToList();
+
+            //Footer--------------------------------------------------------------
+            var me = db.Rep_SellFactorDetail.Get().Select(a => a).GroupBy(a => a.Products_Id).ToList().OrderByDescending(a => a.Count()).Take(2);
+            List<Vm_PictureProduct> Li4 = new List<Vm_PictureProduct>();
+
+            foreach (var item in me)
+            {
+                var y1 = db.Rep_Product_Picture.Get(a => a.Product_Id == item.Key).Select(e => new Vm_PictureProduct
+                {
+                    ProductVMNew = new Vm_Product { NameProduct = e.Tbl_Products.NameProduct },
+                    PicturVMNew = new Vm_Picture { Name = e.Tbl_Picture.Name, PicturePath = e.Tbl_Picture.PicturePath },
+                    PriceVMNew = db.Rep_PriceProduct.Get(a => a.Products_Id == e.Product_Id).Select(a => new Vm_Price { Price = a.Tbl_Price.Price }).LastOrDefault()
+                }).ToList().FirstOrDefault();
+
+                Li4.Add(y1);
+            }
+            PageBlog.PortofioProductVM = Li4;
+
             return View(PageBlog);
         }
 

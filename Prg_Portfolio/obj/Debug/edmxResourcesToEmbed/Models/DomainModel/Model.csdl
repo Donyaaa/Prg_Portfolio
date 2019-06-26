@@ -57,6 +57,7 @@
     <EntitySet Name="Tbl_Salseman" EntityType="DB_PortfolioModel.Tbl_Salseman" />
     <EntitySet Name="Tbl_SellFactor" EntityType="DB_PortfolioModel.Tbl_SellFactor" />
     <EntitySet Name="Tbl_SellFactorDetail" EntityType="DB_PortfolioModel.Tbl_SellFactorDetail" />
+    <EntitySet Name="Tbl_Sentensess" EntityType="DB_PortfolioModel.Tbl_Sentensess" />
     <EntitySet Name="Tbl_Subscribe" EntityType="DB_PortfolioModel.Tbl_Subscribe" />
     <EntitySet Name="Tbl_Tag" EntityType="DB_PortfolioModel.Tbl_Tag" />
     <EntitySet Name="Tbl_User" EntityType="DB_PortfolioModel.Tbl_User" />
@@ -348,7 +349,6 @@
     <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="RepllayTo" Type="Int64" />
-    <Property Name="PointOf100" Type="Byte" />
     <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
     <Property Name="Creator_Id" Type="Int32" />
     <Property Name="DeactivationDateTime" Type="DateTime" Precision="3" />
@@ -368,8 +368,8 @@
     <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Products_Id" Type="Int64" />
     <Property Name="ReasonRating_Id" Type="Byte" />
-    <Property Name="Text" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="RepllayTo" Type="Int64" />
     <Property Name="Point_Of100" Type="Byte" />
     <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
@@ -682,6 +682,14 @@
     <Property Name="IsActive" Type="Boolean" />
     <NavigationProperty Name="Tbl_Products" Relationship="DB_PortfolioModel.FK_Tbl_SellFactorDetail_Tbl_Products" FromRole="Tbl_SellFactorDetail" ToRole="Tbl_Products" />
     <NavigationProperty Name="Tbl_SellFactor" Relationship="DB_PortfolioModel.FK_Tbl_SellFactorDetail_Tbl_SellFactor" FromRole="Tbl_SellFactorDetail" ToRole="Tbl_SellFactor" />
+  </EntityType>
+  <EntityType Name="Tbl_Sentensess">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WriterName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Tbl_Subscribe">
     <Key>

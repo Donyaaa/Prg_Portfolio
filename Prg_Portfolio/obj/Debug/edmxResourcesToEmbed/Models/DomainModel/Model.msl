@@ -144,7 +144,6 @@
           <ScalarProperty Name="DeactivationDateTime" ColumnName="DeactivationDateTime" />
           <ScalarProperty Name="Creator_Id" ColumnName="Creator_Id" />
           <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
-          <ScalarProperty Name="PointOf100" ColumnName="PointOf100" />
           <ScalarProperty Name="RepllayTo" ColumnName="RepllayTo" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Text" ColumnName="Text" />
@@ -450,6 +449,15 @@
           <ScalarProperty Name="ProductCount" ColumnName="ProductCount" />
           <ScalarProperty Name="SellFactor_Id" ColumnName="SellFactor_Id" />
           <ScalarProperty Name="Products_Id" ColumnName="Products_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Sentensess">
+      <EntityTypeMapping TypeName="DB_PortfolioModel.Tbl_Sentensess">
+        <MappingFragment StoreEntitySet="Tbl_Sentensess">
+          <ScalarProperty Name="WriterName" ColumnName="WriterName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -112,7 +112,6 @@
     <Property Name="Text" Type="nvarchar(max)" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
     <Property Name="RepllayTo" Type="bigint" />
-    <Property Name="PointOf100" Type="tinyint" />
     <Property Name="CreationDateTime" Type="datetime" />
     <Property Name="Creator_Id" Type="int" />
     <Property Name="DeactivationDateTime" Type="datetime" />
@@ -128,8 +127,8 @@
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Products_Id" Type="bigint" />
     <Property Name="ReasonRating_Id" Type="tinyint" />
-    <Property Name="Text" Type="nvarchar" MaxLength="50" />
-    <Property Name="Email" Type="varchar" MaxLength="20" />
+    <Property Name="Text" Type="nvarchar(max)" />
+    <Property Name="Email" Type="varchar(max)" />
     <Property Name="RepllayTo" Type="bigint" />
     <Property Name="Point Of100" Type="tinyint" />
     <Property Name="CreationDateTime" Type="datetime" />
@@ -402,6 +401,14 @@
     <Property Name="ModificationDateTime" Type="datetime" />
     <Property Name="Modificator_Id" Type="int" />
     <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Tbl_Sentensess">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="WriterName" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Tbl_Subscribe">
     <Key>
@@ -980,6 +987,7 @@
     <EntitySet Name="Tbl_Salseman" EntityType="Self.Tbl_Salseman" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tbl_SellFactor" EntityType="Self.Tbl_SellFactor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tbl_SellFactorDetail" EntityType="Self.Tbl_SellFactorDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Sentensess" EntityType="Self.Tbl_Sentensess" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tbl_Subscribe" EntityType="Self.Tbl_Subscribe" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tbl_Tag" EntityType="Self.Tbl_Tag" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tbl_User" EntityType="Self.Tbl_User" Schema="dbo" store:Type="Tables" />
