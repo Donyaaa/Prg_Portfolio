@@ -14,4 +14,14 @@ namespace Prg_Portfolio.Models.ViewModel
         public Nullable<bool> IsActive { get; set; }
         public double Ratting { get; set; }
     }
+
+    public class Vm_X
+    {
+        public long Id { get; set; }
+        public string NameProduct { get; set; }
+        public long Price { get; set; }
+        public string Pic_Name { get; set; }
+        public double Ratting { get; set; }
+    }
+
 }

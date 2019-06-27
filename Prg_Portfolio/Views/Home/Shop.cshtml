@@ -1,4 +1,4 @@
-﻿@model Prg_Portfolio.Models.ViewModel.VM_PageBlog
+﻿@model Prg_Portfolio.Models.ViewModel.VM_ShopPage
 @{
     ViewBag.Title = "فروشگاه";
     Layout = "~/Views/Shared/_MyLayout.cshtml";
@@ -170,63 +170,28 @@
 
                     <!-- Shop Widget -->
                     <div class="shop-widget best-seller mb-50">
-                        <h4 class="widget-title">بهترین فروشنده</h4>
+                        <h4 class="widget-title">بیشترین فروش</h4>
                         <div class="widget-desc">
-
-                            <!-- Single Best Seller Products -->
-                            <div class="single-best-seller-product d-flex align-items-center">
-                                <div class="product-thumbnail">
-                                    <a href="shop-details.html"><img src="/Content/Img/4.jpg" alt=""></a>
-                                </div>
-                                <div class="product-info m-3">
-                                    <a href="shop-details.html">گل کاکتوس</a>
-                                    <p>$10.99</p>
-                                    <div class="ratings">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                            @foreach (var item in Model.PortofioProductVM2)
+                            {
+                                <!-- Single Best Seller Products -->
+                                <div class="single-best-seller-product d-flex align-items-center">
+                                    <div class="product-thumbnail">
+                                        <a href="@item.PicturVMNew.PicturePath/@item.PicturVMNew.Name"><img src="/Content/Img/@item.PicturVMNew.Name" alt=""></a>
+                                    </div>
+                                    <div class="product-info m-3">
+                                        <a href="">@item.ProductVMNew.NameProduct</a>
+                                        <p>@item.PriceVMNew.Price</p>
+                                        <div class="ratings">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Single Best Seller Products -->
-                            <div class="single-best-seller-product d-flex align-items-center">
-                                <div class="product-thumbnail">
-                                    <a href="shop-details.html"><img src="/Content/Img/5.jpg" alt=""></a>
-                                </div>
-                                <div class="product-info m-3">
-                                    <a href="shop-details.html">گل لاله</a>
-                                    <p>$11.99</p>
-                                    <div class="ratings">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Best Seller Products -->
-                            <div class="single-best-seller-product d-flex align-items-center">
-                                <div class="product-thumbnail">
-                                    <a href="shop-details.html"><img src="/Content/Img/34.jpg" alt=""></a>
-                                </div>
-                                <div class="product-info m-3">
-                                    <a href="shop-details.html">گیاه خاطره</a>
-                                    <p>$9.99</p>
-                                    <div class="ratings">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-
+                            }
                         </div>
                     </div>
                 </div>
@@ -236,212 +201,35 @@
             <div class="col-12 col-md-8 col-lg-9">
                 <div class="shop-products-area">
                     <div class="row">
-
-                        <!-- Single Product Area -->
-                        <div class="col-12 col-sm-6 col-lg-4">
-                            <div class="single-product-area mb-50">
-                                <!-- Product Image -->
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="/Content/Img/40.png" alt=""></a>
-                                    <!-- Product Tag -->
-                                    <div class="product-tag sale-tag">
-                                        <a href="#">جدید</a>
+                        @foreach (var item in Model.Vm_MainProduct)
+                        {
+                            <!-- Single Product Area -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="single-product-area mb-50">
+                                    <!-- Product Image -->
+                                    <div class="product-img">
+                                        <a href="/Content/Img/@item.Pic_Name"><img src="/Content/Img/@item.Pic_Name" alt=""></a>
+                                        <!-- Product Tag -->
+                                        <div class="product-tag sale-tag">
+                                            <a href="#">جدید</a>
+                                        </div>
+                                        <div class="product-meta d-flex">
+                                            <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
+                                            <a href="cart.html" class="add-to-cart-btn">سبد خرید</a>
+                                            <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
+                                        </div>
                                     </div>
-                                    <div class="product-meta d-flex">
-                                        <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                        <a href="cart.html" class="add-to-cart-btn">سبد خرید</a>
-                                        <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
+                                    <!-- Product Info -->
+                                    <div class="product-info mt-15 text-center">
+                                        <a href="shop-details.html">
+                                            <p>@item.NameProduct</p>
+                                        </a>
+                                        <h6>@item.Price</h6>
                                     </div>
-                                </div>
-                                <!-- Product Info -->
-                                <div class="product-info mt-15 text-center">
-                                    <a href="shop-details.html">
-                                        <p>گل کاکتوس</p>
-                                    </a>
-                                    <h6>$10.99</h6>
                                 </div>
                             </div>
-                        </div>
+                        }
 
-                        <!-- Single Product Area -->
-                        <div class="col-12 col-sm-6 col-lg-4">
-                            <div class="single-product-area mb-50">
-                                <!-- Product Image -->
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="/Content/Img/41.png" alt=""></a>
-                                    <div class="product-meta d-flex">
-                                        <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                        <a href="cart.html" class="add-to-cart-btn">سبد خرید</a>
-                                        <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
-                                    </div>
-                                </div>
-                                <!-- Product Info -->
-                                <div class="product-info mt-15 text-center">
-                                    <a href="shop-details.html">
-                                        <p>گل کاکتوس</p>
-                                    </a>
-                                    <h6>$10.99</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product Area -->
-                        <div class="col-12 col-sm-6 col-lg-4">
-                            <div class="single-product-area mb-50">
-                                <!-- Product Image -->
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="/Content/Img/42.png" alt=""></a>
-                                    <div class="product-meta d-flex">
-                                        <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                        <a href="cart.html" class="add-to-cart-btn">سبد خرید</a>
-                                        <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
-                                    </div>
-                                </div>
-                                <!-- Product Info -->
-                                <div class="product-info mt-15 text-center">
-                                    <a href="shop-details.html">
-                                        <p>گل کاکتوس</p>
-                                    </a>
-                                    <h6>$10.99</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product Area -->
-                        <div class="col-12 col-sm-6 col-lg-4">
-                            <div class="single-product-area mb-50">
-                                <!-- Product Image -->
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="/Content/Img/43.png" alt=""></a>
-                                    <div class="product-meta d-flex">
-                                        <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                        <a href="cart.html" class="add-to-cart-btn">سبد خرید</a>
-                                        <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
-                                    </div>
-                                </div>
-                                <!-- Product Info -->
-                                <div class="product-info mt-15 text-center">
-                                    <a href="shop-details.html">
-                                        <p>گل کاکتوس</p>
-                                    </a>
-                                    <h6>$10.99</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product Area -->
-                        <div class="col-12 col-sm-6 col-lg-4">
-                            <div class="single-product-area mb-50">
-                                <!-- Product Image -->
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="/Content/Img/44.png" alt=""></a>
-                                    <div class="product-meta d-flex">
-                                        <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                        <a href="cart.html" class="add-to-cart-btn">سبد خرید</a>
-                                        <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
-                                    </div>
-                                </div>
-                                <!-- Product Info -->
-                                <div class="product-info mt-15 text-center">
-                                    <a href="shop-details.html">
-                                        <p>گل کاکتوس</p>
-                                    </a>
-                                    <h6>$10.99</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product Area -->
-                        <div class="col-12 col-sm-6 col-lg-4">
-                            <div class="single-product-area mb-50">
-                                <!-- Product Image -->
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="/Content/Img/45.png" alt=""></a>
-                                    <div class="product-meta d-flex">
-                                        <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                        <a href="cart.html" class="add-to-cart-btn">سبد خرید</a>
-                                        <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
-                                    </div>
-                                </div>
-                                <!-- Product Info -->
-                                <div class="product-info mt-15 text-center">
-                                    <a href="shop-details.html">
-                                        <p>گل کاکتوس</p>
-                                    </a>
-                                    <h6>$10.99</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product Area -->
-                        <div class="col-12 col-sm-6 col-lg-4">
-                            <div class="single-product-area mb-50">
-                                <!-- Product Image -->
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="/Content/Img/46.png" alt=""></a>
-                                    <div class="product-meta d-flex">
-                                        <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                        <a href="cart.html" class="add-to-cart-btn">سبد خرید</a>
-                                        <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
-                                    </div>
-                                </div>
-                                <!-- Product Info -->
-                                <div class="product-info mt-15 text-center">
-                                    <a href="shop-details.html">
-                                        <p>گل کاکتوس</p>
-                                    </a>
-                                    <h6>$10.99</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product Area -->
-                        <div class="col-12 col-sm-6 col-lg-4">
-                            <div class="single-product-area mb-50">
-                                <!-- Product Image -->
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="/Content/Img/47.png" alt=""></a>
-                                    <!-- Product Tag -->
-                                    <div class="product-tag sale-tag">
-                                        <a href="#">فروش</a>
-                                    </div>
-                                    <div class="product-meta d-flex">
-                                        <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                        <a href="cart.html" class="add-to-cart-btn">سبد خرید</a>
-                                        <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
-                                    </div>
-                                </div>
-                                <!-- Product Info -->
-                                <div class="product-info mt-15 text-center">
-                                    <a href="shop-details.html">
-                                        <p>گل کاکتوس</p>
-                                    </a>
-                                    <h6>$10.99</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product Area -->
-                        <div class="col-12 col-sm-6 col-lg-4">
-                            <div class="single-product-area mb-50">
-                                <!-- Product Image -->
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="/Content/Img/48.png" alt=""></a>
-                                    <div class="product-meta d-flex">
-                                        <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                        <a href="cart.html" class="add-to-cart-btn">سبد خرید</a>
-                                        <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
-                                    </div>
-                                </div>
-                                <!-- Product Info -->
-                                <div class="product-info mt-15 text-center">
-                                    <a href="shop-details.html">
-                                        <p>گل کاکتوس</p>
-                                    </a>
-                                    <h6>$10.99</h6>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- Pagination -->
@@ -474,10 +262,10 @@
                             <!-- Single Best Seller Products -->
                             <div class="single-best-seller-product d-flex text2">
                                 <div class="product-thumbnail">
-                                    <a href="shop-details.html"><img src="/Content/Img/@item.PicturVMNew.Name" alt=""></a>
+                                    <a href="@item.PicturVMNew.PicturePath/@item.PicturVMNew.Name"><img src="/Content/Img/@item.PicturVMNew.Name" alt=""></a>
                                 </div>
                                 <div class="product-info m-3">
-                                    <a href="shop-details.html">@item.ProductVMNew.NameProduct </a>
+                                    <a href="">@item.ProductVMNew.NameProduct </a>
                                     <p>@item.PriceVMNew.Price</p>
                                 </div>
                             </div>
