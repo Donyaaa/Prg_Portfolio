@@ -14,8 +14,8 @@
             <div class="col-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="~/Home/Index"><i class="fa fa-home"></i> صفحه اصلی</a></li>
-                        <li class="breadcrumb-item"><a href="#~/Home/Blog"> وبلاگ</a></li>
+                        <li class="breadcrumb-item"><a href="/Home/Index"><i class="fa fa-home"></i> صفحه اصلی</a></li>
+                        <li class="breadcrumb-item"><a href="/Home/Blog"> وبلاگ</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> وبلاگ شخصی </li>
                     </ol>
                 </nav>
@@ -27,7 +27,7 @@
 <!-- ##### Blog Content Area Start ##### -->
 <section class="blog-content-area section-padding-0-100">
     <div class="container">
-        <div class="row justify-content-center" dir="rtl">
+        <div class="row justify-content-center rtl">
             <!-- Blog Posts Area -->
             <div class="col-12 col-md-8">
                 <div class="blog-posts-area">
@@ -40,8 +40,8 @@
                                     @item.BlogVMNew.Title
                                 </h4>
                                 <div class="post-meta mb-30">
-                                    <a href=""><i class="fa fa-clock-o" aria-hidden="true"></i> @string.Format("{0:yyyy/MM/dd}", item.BlogVMNew.Date)</a>
-                                    <a href=""><i class="fa fa-user" aria-hidden="true"></i>@item.UserName.FirstName @item.UserName.LastName</a>
+                                    <a href=""><i class="fa fa-clock-o" aria-hidden="true"> </i> @string.Format("{0:yyyy/MM/dd}", item.BlogVMNew.Date)</a>
+                                    <a href=""><i class="fa fa-user" aria-hidden="true"></i> @item.UserName.FirstName @item.UserName.LastName</a>
                                 </div>
                                 <div class="post-thumbnail mb-30">
                                     <img src="~/Content/Img/@item.PictureVMNew.Name" alt="">
@@ -83,10 +83,10 @@
                         </ol>
                         <!-- Share -->
                         <div class="post-share">
-                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                         </div>
                     </div>
 
@@ -164,7 +164,7 @@
                     <div class="single-widget-area">
                         <form action="#" method="get" class="search-form">
                             <input type="search" name="search" id="widgetSearch" placeholder="جستجو کردن...">
-                            <button type="submit"><i class="icon_search"></i></button>
+                            <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
 
@@ -183,10 +183,10 @@
                             </div>
                             <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                             <div class="social-info">
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -308,7 +308,7 @@
                     </div>
                     <div class="single-footer-widget text-right">
                         <div class="social-info">
-                            <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
                             <a href="https://snapchat.com"><i class="fab fa-snapchat-ghost"></i></a>
                             <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
                             <a href="https://instagram.com/timtec-co"><i class="fab fa-instagram"></i></a>

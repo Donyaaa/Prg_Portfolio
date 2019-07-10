@@ -154,3 +154,4 @@ C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Po
 C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.csproj.CopyComplete
 C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.dll
 C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.pdb
+C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.csprojAssemblyReference.cache

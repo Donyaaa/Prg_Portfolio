@@ -12,7 +12,7 @@
             <div class="col-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="~/Home/Index"><i class="fa fa-home"></i> صفحه اصلی</a></li>
+                        <li class="breadcrumb-item"><a href="/Home/Index"><i class="fa fa-home"></i> صفحه اصلی</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> وبلاگ</li>
                     </ol>
                 </nav>
@@ -42,8 +42,8 @@
                                         </h5>
                                     </a>
                                     <div class="post-meta">
-                                        <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>@string.Format("{0:yyyy/MM/dd}", item.BlogVMNew.Date)</a>
-                                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i>@item.UserName.FirstName @item.UserName.LastName</a>
+                                        <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> @string.Format("{0:yyyy/MM/dd}", item.BlogVMNew.Date)</a>
+                                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i> @item.UserName.FirstName @item.UserName.LastName</a>
                                     </div>
                                     <p class="post-excerpt text2">
                                         @item.BlogVMNew.Text
@@ -140,7 +140,7 @@
                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                     <li class="page-item">
                         <a class="page-link" href="#">
-                            <i class="fa fa-angle-right"></i>
+                            <i class="fa fa-angle-left"></i>
                         </a>
                     </li>
                 </ul>
@@ -192,7 +192,7 @@
                     </div>
                     <div class="single-footer-widget text-right">
                         <div class="social-info">
-                            <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
                             <a href="https://snapchat.com"><i class="fab fa-snapchat-ghost"></i></a>
                             <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
                             <a href="https://instagram.com/timtec-co"><i class="fab fa-instagram"></i></a>
