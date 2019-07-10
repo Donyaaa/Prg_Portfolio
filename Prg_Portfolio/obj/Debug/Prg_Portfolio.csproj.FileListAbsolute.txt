@@ -102,10 +102,6 @@ D:\Project\Portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.csproj.
 D:\Project\Portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.dll
 D:\Project\Portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.pdb
 D:\Project\Portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.csprojAssemblyReference.cache
-C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.csprojAssemblyReference.cache
-C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.csproj.CoreCompileInputs.cache
-C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.dll
-C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.pdb
 C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\bin\roslyn\csc.exe
 C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\bin\roslyn\csc.exe.config
 C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\bin\roslyn\csc.rsp
@@ -154,4 +150,7 @@ C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\bin\System.Web.W
 C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\bin\System.Web.Webpages.Razor.xml
 C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\bin\System.Web.Helpers.xml
 C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\bin\System.Web.Mvc.xml
+C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.csproj.CoreCompileInputs.cache
 C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.csproj.CopyComplete
+C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.dll
+C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.pdb

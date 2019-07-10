@@ -332,12 +332,26 @@ namespace Prg_Portfolio.Controllers
         {
 
             //Blog---------------------------------------------------------------
-            var p = db.Rep_Blog_Picture.Get().Select(e => new Vm_PictureBlog
+            var p = db.Rep_Blog_Picture.Get(x => x.Blog_Id == id).Select(e => new Vm_PictureBlog
             {
-                BlogVMNew = new Vm_Blog { Title = e.Tbl_Blog.Title, Description = e.Tbl_Blog.Description, Text = e.Tbl_Blog.Text, Date = ((DateTime)e.Tbl_Blog.Date).DateTimeToShamsi() },
-                PictureVMNew = new Vm_Picture { Name = e.Tbl_Picture.Name, PicturePath = e.Tbl_Picture.PicturePath },
-                UserName = db.Rep_Blog.Get(uj => uj.User_Id == e.Tbl_Blog.User_Id).Select(a => new Vm_User { FirstName = a.Tbl_User.FirstName, LastName = a.Tbl_User.LastName }).LastOrDefault()
-            }).Where(x => x.BlogVMNew.Id == id).ToList();
+                BlogVMNew = new Vm_Blog
+                {
+                    Title = e.Tbl_Blog.Title,
+                    Description = e.Tbl_Blog.Description,
+                    Text = e.Tbl_Blog.Text,
+                    Date = ((DateTime)e.Tbl_Blog.Date).DateTimeToShamsi()
+                },
+                PictureVMNew = new Vm_Picture
+                {
+                    Name = e.Tbl_Picture.Name,
+                    PicturePath = e.Tbl_Picture.PicturePath
+                },
+                UserName = db.Rep_Blog.Get(uj => uj.User_Id == e.Tbl_Blog.User_Id).Select(a => new Vm_User
+                {
+                    FirstName = a.Tbl_User.FirstName,
+                    LastName = a.Tbl_User.LastName
+                }).LastOrDefault()
+            }).ToList();
             PageBlog.PictureBlogVMNew = p;
 
             //Sentensess---------------------------------------------------------
