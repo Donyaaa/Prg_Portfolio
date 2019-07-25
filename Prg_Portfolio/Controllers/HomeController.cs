@@ -176,6 +176,7 @@ namespace Prg_Portfolio.Controllers
             }
         }
 
+        [Route("Shop")]
         public ActionResult Shop()
         {
             var ShP = db.Rep_Product_Picture.Get().Select(a => new Vm_X
@@ -225,10 +226,12 @@ namespace Prg_Portfolio.Controllers
             return View(ShopPage);
         }
 
+
         /// <summary>
         /// Descriptuion About The Owner Of The Site
         /// </summary>
         /// <returns>Value That Sended From The Web Page</returns>
+        [Route("AboutUs")]
         public ActionResult AboutUs()
         {
             //User---------------------------------------------------------------
@@ -279,6 +282,7 @@ namespace Prg_Portfolio.Controllers
         /// <summary>
         /// For Sending The Email That Users Where Subscribe
         /// </summary>
+        [Route("Blog")]
         public ActionResult Blog()
         {
             //Blog---------------------------------------------------------------
@@ -328,9 +332,16 @@ namespace Prg_Portfolio.Controllers
             return View(PageBlog);
         }
 
+        [Route("BlogDetail/{id}")]
         public ActionResult BlogDetail(int id)
         {
+            if (string.IsNullOrEmpty(id.ToString()))
+            {
+                var qq = db.Rep_Blog.Get().Count();
+                Random rndd = new Random();
 
+                id = rndd.Next(0, qq);
+            }
             //Blog---------------------------------------------------------------
             var p = db.Rep_Blog_Picture.Get(x => x.Blog_Id == id).Select(e => new Vm_PictureBlog
             {

@@ -155,3 +155,5 @@ C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Po
 C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.dll
 C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.pdb
 C:\Users\MmD_ShrF\Desktop\portfolio\Prg_Portfolio\Prg_Portfolio\obj\Debug\Prg_Portfolio.csprojAssemblyReference.cache
+C:\Users\MmD_ShrF\Desktop\Portfolio\Prg_Portfolio\Prg_Portfolio\bin\Elmah.dll
+C:\Users\MmD_ShrF\Desktop\Portfolio\Prg_Portfolio\Prg_Portfolio\bin\Elmah.Mvc.dll
